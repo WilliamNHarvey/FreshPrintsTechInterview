@@ -142,84 +142,37 @@ html(lang='en')
             div(align='center', style='min-height: 32px;')
               .clearfix
                 #texteditor.btn-group.inline.pull-left(style='display:none')
-                  div(style='display:none')
-                    button#font-family.btn.dropdown-toggle(data-toggle='dropdown', title='Font Style')
-                      i.icon-font(style='width:19px;height:19px;')
-                    ul.dropdown-menu(role='menu', aria-labelledby='font-family-X')
-                      li
-                        a.Arial(tabindex='-1', href='#', onclick="setFont('Arial');") Arial
-                      li
-                        a.Helvetica(tabindex='-1', href='#', onclick="setFont('Helvetica');") Helvetica
-                      li
-                        a.MyriadPro(tabindex='-1', href='#', onclick="setFont('Myriad Pro');") Myriad Pro
-                      li
-                        a.Delicious(tabindex='-1', href='#', onclick="setFont('Delicious');") Delicious
-                      li
-                        a.Verdana(tabindex='-1', href='#', onclick="setFont('Verdana');") Verdana
-                      li
-                        a.Georgia(tabindex='-1', href='#', onclick="setFont('Georgia');") Georgia
-                      li
-                        a.Courier(tabindex='-1', href='#', onclick="setFont('Courier');") Courier
-                      li
-                        a.ComicSansMS(tabindex='-1', href='#', onclick="setFont('Comic Sans MS');") Comic Sans MS
-                      li
-                        a.Impact(tabindex='-1', href='#', onclick="setFont('Impact');") Impact
-                      li
-                        a.Monaco(tabindex='-1', href='#', onclick="setFont('Monaco');") Monaco
-                      li
-                        a.Optima(tabindex='-1', href='#', onclick="setFont('Optima');") Optima
-                      li
-                        a.Hoefler.Text(tabindex='-1', href='#', onclick="setFont('Hoefler Text');") Hoefler Text
-                      li
-                        a.Plaster(tabindex='-1', href='#', onclick="setFont('Plaster');") Plaster
-                      li
-                        a.Engagement(tabindex='-1', href='#', onclick="setFont('Engagement');") Engagement
-                  
-                  button#font-size.btn.dropdown-toggle(data-toggle='dropdown', title='Font Size')
+                  button#font-family.btn.dropdown-toggle(data-toggle='dropdown', title='Font Style')
                     i.icon-font(style='width:19px;height:19px;')
-                  ul.dropdown-menu(role='menu', aria-labelledby='font-size-X')
+                  ul.dropdown-menu(role='menu', aria-labelledby='font-family-X')
                     li
-                      a.16(tabindex='-1', href='#', onclick="setFontSize(16);") 16
+                      a.Arial(tabindex='-1', href='#', onclick="setFont('Arial');") Arial
                     li
-                      a.18(tabindex='-1', href='#', onclick="setFontSize(18);") 18
+                      a.Helvetica(tabindex='-1', href='#', onclick="setFont('Helvetica');") Helvetica
                     li
-                      a.20(tabindex='-1', href='#', onclick="setFontSize(20);") 20
+                      a.MyriadPro(tabindex='-1', href='#', onclick="setFont('Myriad Pro');") Myriad Pro
                     li
-                      a.22(tabindex='-1', href='#', onclick="setFontSize(22);") 22
+                      a.Delicious(tabindex='-1', href='#', onclick="setFont('Delicious');") Delicious
                     li
-                      a.24(tabindex='-1', href='#', onclick="setFontSize(24);") 24
+                      a.Verdana(tabindex='-1', href='#', onclick="setFont('Verdana');") Verdana
                     li
-                      a.26(tabindex='-1', href='#', onclick="setFontSize(26);") 26
+                      a.Georgia(tabindex='-1', href='#', onclick="setFont('Georgia');") Georgia
                     li
-                      a.28(tabindex='-1', href='#', onclick="setFontSize(28);") 28
+                      a.Courier(tabindex='-1', href='#', onclick="setFont('Courier');") Courier
                     li
-                      a.30(tabindex='-1', href='#', onclick="setFontSize(30);") 30
+                      a.ComicSansMS(tabindex='-1', href='#', onclick="setFont('Comic Sans MS');") Comic Sans MS
                     li
-                      a.32(tabindex='-1', href='#', onclick="setFontSize(32);") 32
+                      a.Impact(tabindex='-1', href='#', onclick="setFont('Impact');") Impact
                     li
-                      a.34(tabindex='-1', href='#', onclick="setFontSize(34);") 34
+                      a.Monaco(tabindex='-1', href='#', onclick="setFont('Monaco');") Monaco
                     li
-                      a.36(tabindex='-1', href='#', onclick="setFontSize(36);") 36
+                      a.Optima(tabindex='-1', href='#', onclick="setFont('Optima');") Optima
                     li
-                      a.38(tabindex='-1', href='#', onclick="setFontSize(38);") 38
+                      a.Hoefler.Text(tabindex='-1', href='#', onclick="setFont('Hoefler Text');") Hoefler Text
                     li
-                      a.40(tabindex='-1', href='#', onclick="setFontSize(40);") 40
+                      a.Plaster(tabindex='-1', href='#', onclick="setFont('Plaster');") Plaster
                     li
-                      a.42(tabindex='-1', href='#', onclick="setFontSize(42);") 42
-                    li
-                      a.44(tabindex='-1', href='#', onclick="setFontSize(44);") 44
-                    li
-                      a.46(tabindex='-1', href='#', onclick="setFontSize(46);") 46
-                    li
-                      a.48(tabindex='-1', href='#', onclick="setFontSize(48);") 48
-                    li
-                      a.50(tabindex='-1', href='#', onclick="setFontSize(50);") 50
-                    li
-                      a.52(tabindex='-1', href='#', onclick="setFontSize(52);") 52
-                    li
-                      a.54(tabindex='-1', href='#', onclick="setFontSize(54);") 54
-                    li
-                      a.56(tabindex='-1', href='#', onclick="setFontSize(56);") 56
+                      a.Engagement(tabindex='-1', href='#', onclick="setFont('Engagement');") Engagement
                   button#text-bold.btn(data-original-title='Bold')
                     img(src='../images/font_bold.png', height='', width='')
                   button#text-italic.btn(data-original-title='Italic')
