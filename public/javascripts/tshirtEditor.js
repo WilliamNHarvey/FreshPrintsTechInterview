@@ -201,13 +201,6 @@ var line4;
 	        canvas.renderAll();
 	      }
 	    });
-	  $("#text-size").click(function() {		  
-		  var activeObject = canvas.getActiveObject();
-		  if (activeObject && activeObject.type === 'text') {
-		    activeObject.fontSize = this.value;		    
-		    canvas.renderAll();
-		  }
-		});
 		$('#text-bgcolor').miniColors({
 			change: function(hex, rgb) {
 			  var activeObject = canvas.getActiveObject();
@@ -350,13 +343,6 @@ var line4;
 		  var activeObject = canvas.getActiveObject();
 	      if (activeObject && activeObject.type === 'text') {
 	        activeObject.fontFamily = font;
-	        canvas.renderAll();
-	      }
-	  }
-	 function setFontSize(size){
-		  var activeObject = canvas.getActiveObject();
-	      if (activeObject && activeObject.type === 'text') {
-	        activeObject.fontSize = size;
 	        canvas.renderAll();
 	      }
 	  }
