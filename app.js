@@ -11,7 +11,7 @@ var users = require('./routes/users');
 
 var app = express();
 
-app.use(express.logger());
+app.use(morgan());
 
 var connection = mysql.createConnection({
 	host 	 : 'us-cdbr-iron-east-04.cleardb.net',
