@@ -139,8 +139,8 @@ html(lang='en')
                       input#text-string.inputdiv(type='text', placeholder='Add text to shirt')
                       button#add-text.btn.buttondiv.btn-primary(title='Add text') Add Text
                     #texteditor.btn-group.inline.pull-left(style='display:none')
-                      select#font-family.btn.dropdown-toggle(data-toggle='dropdown', title='Font Style')
-                        Font
+                      button#font-family.btn.dropdown-toggle(data-toggle='dropdown', title='Font Style')
+                        i.icon-font(style='width:19px;height:19px;')
                       ul.dropdown-menu(role='menu', aria-labelledby='font-family-X')
                         li
                           a.Arial(tabindex='-1', href='#', onclick="setFont('Arial');") Arial
