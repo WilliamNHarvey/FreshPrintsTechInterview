@@ -6,6 +6,11 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mysql = require('mysql');
 
+var routes = require('./routes/index');
+var users = require('./routes/users');
+
+var app = express();
+
 app.use(express.logger());
 
 var connection = mysql.createConnection({
@@ -38,11 +43,6 @@ console.log(err);
 console.log("Table saves Created");
 }
 });
-
-var routes = require('./routes/index');
-var users = require('./routes/users');
-
-var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
