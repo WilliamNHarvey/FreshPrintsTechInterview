@@ -29,7 +29,7 @@ html(lang='en')
       }
       .container-narrow {
       margin: 0 auto;
-      max-width: 80%;
+      max-width: 60%;
       }
       body {
       padding-top: 20px;
@@ -71,7 +71,7 @@ html(lang='en')
     //
       Navbar
       ==================================================
-    .container
+    .container-narrow
       #group
         .masthead
           h3.text-muted williamnharvey.com
@@ -80,7 +80,7 @@ html(lang='en')
       section#typography
         // Headings & Paragraph Copy
         .row
-          .span4
+          .span6
             .tabbable
               // Only required for left/right tabs
               ul.nav.nav-tabs
@@ -130,7 +130,7 @@ html(lang='en')
                   .well
                     .input-append
                       input#text-string.span2(type='text', placeholder='add text here...')
-                      button#add-text.btn(title='Add text') Add Text
+                      button#add-text.btn btn-success(title='Add text') Add Text
           .span6
             div(align='center', style='min-height: 32px;')
               .clearfix
