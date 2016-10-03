@@ -31,8 +31,11 @@ html(lang='en')
       margin: 0 auto;
       max-width: 60%;
       }
-      span6 {
-      float: left; !important
+      .inputdiv {
+      width: 75%;
+      }
+      .buttondiv {
+      width: 25%;
       }
       body {
       padding-top: 20px;
@@ -132,8 +135,8 @@ html(lang='en')
                 #tab3.tab-pane
                   .well
                     .input-append
-                      input#text-string.span8(type='text', placeholder='add text here...')
-                      button#add-text.btn(title='Add text') Add Text
+                      input#text-string.inputdiv(type='text', placeholder='add text here...')
+                      button#add-text.btn.buttondiv(title='Add text') Add Text
           .span8
             div(align='center', style='min-height: 32px;')
               .clearfix
