@@ -1,0 +1,270 @@
+//doctype html
+//html
+    //head
+        //title= title
+        //link(rel='stylesheet', href='/stylesheets/style.css')
+    //body
+        //block content
+        //script(src='http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js')
+        //script(src='/javascripts/global.js')
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    title William Harvey · BME Student
+    meta(property='og:image', content='http://www.williamnharvey.com/assets/images/meteorite.jpg')
+    meta(name='description', content='Candidate for Bachelor of Applied Science in Biomedical Engineering. University of Waterloo Graduating Class of 2020.')
+    meta(name='keywords', content='BME, engineering student, BME student, biomedical engineering student, William Harvey, william harvey, william n harvey, william norman harvey, William Norman Harvey, University of Waterloo student, UW student, University of Waterloo, UW')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='author', content='William Norman Harvey')
+    link(href='../stylesheets/bootstrap.css', rel='stylesheet')
+    style(type='text/css').
+      .next {
+      text-align: center;
+      font-size: 50px;
+      transition: all 0.5s;
+      cursor: pointer;
+      text-align: center;
+      }
+      .next span {
+      cursor: pointer;
+      display: inline-block;
+      position: relative;
+      transition: 0.5s;
+      }
+      .next span:after {
+      content: '>';
+      position: absolute;
+      opacity: 0;
+      top: 0;
+      right: -20px;
+      transition: 0.5s;
+      }
+      .next:hover span {
+      padding-right: 40px;
+      }
+      .next:hover span:after {
+      opacity: 1;
+      right: 0;
+      }
+      .display-table{
+      display: table;
+      table-layout: fixed;
+      }
+      .display-cell{
+      display: table-cell;
+      vertical-align: middle;
+      float: none;
+      }
+      .select {
+      pointer-events: none;
+      }
+      body {
+      padding-top: 20px;
+      padding-bottom: 40px;
+      }
+      #cover {
+      cursor: pointer;
+      }
+      #coverText {
+      -moz-user-select: -moz-none;
+      -khtml-user-select: none;
+      -webkit-user-select: none;
+      -o-user-select: none;
+      }
+      /* Custom container */
+      .container-narrow {
+      margin: 0 auto;
+      max-width: 80%;
+      }
+      .container-narrow > hr {
+      margin: 30px 0;
+      }
+      .jumbotron {
+      margin: 60px 0;
+      text-align: center;
+      }
+      .jumbotron h1 {
+      font-size: 72px;
+      line-height: 1;
+      }
+      .jumbotron .btn {
+      font-size: 21px;
+      padding: 14px 24px;
+      }
+      .marketing {
+      margin: 60px 0;
+      }
+      .marketing p + h4 {
+      margin-top: 28px;
+      }
+    link(href='../stylesheets/bootstrap-responsive.css', rel='stylesheet')
+    // HTML5 shim, for IE6-8 support of HTML5 elements
+    //if lt IE 9
+      script(src='../stylesheets/html5shiv.js')
+  body
+    //
+      <div class="span6">
+      <div class="flex-video widescreen"><iframe src="https://www.youtube-nocookie.com/embed/..." frameborder="0" allowfullscreen=""></iframe></div>
+      </div>
+    .container-narrow
+      #group
+        .masthead
+          ul.nav.nav-pills.pull-right
+            li.active.select
+              a(href='#home', data-toggle='collapse') Home
+            li
+              a(href='#resume', data-toggle='collapse') Resume
+            li
+              a(href='#quotes', data-toggle='collapse') Quotes
+            li
+              a(href='#contact', data-toggle='collapse') Contact
+            li#cover
+              a#coverText(onclick='viewCover();') View Cover Page
+          h3.text-muted williamnharvey.com
+        hr
+        #home.collapse.in
+          .jumbotron
+            h1 Welcome Home
+            p.lead Enjoy yourself while browsing my website!
+            p.lead Please don't hesitate to contact me at my personal e-mail
+            p.lead
+              | Currently being run on Node.js
+        #resume.collapse
+          a(href='/resume', target='_blank') View in new tab
+          embed#resumeObject(src='/files/resume.pdf#toolbar=0&navpanes=0&scrollbar=0', style="background-image: url('/images/loading.gif'); background-repeat: no-repeat; background-position: center;", width='100%', height='1200')
+        #quotes.collapse
+          #quotesParent.jumbotron.row.display-table(style='margin-left:0px')
+            .col-md-8.display-cell
+              div(style='text-align: center;')
+                img#quoteImage(src='', alt='Quote picture', width='100%', height='600px')
+            //
+            .col-md-4.display-cell
+              #quoteText.lead
+          .next(onclick='nextQuote();')
+            span Next Quote 
+        #contact.collapse
+          .jumbotron.row(style='margin-left:0px')
+            .col-sm-4
+              h1 Website
+              p.lead william@williamnharvey.com
+            .col-sm-4
+              h1 School
+              p.lead wnharvey@uwaterloo.ca
+            .col-sm-4
+              h1 Personal
+              p.lead williamnharvey@gmail.com
+        hr
+        hr
+        .footer
+          p William Norman Harvey 2016
+    // /container
+    //
+      Le javascript
+      ==================================================
+    // Placed at the end of the document so the pages load faster
+    script(src='../javascripts/jquery-3.1.0.js')
+    script(src='../javascripts/transition.js')
+    script(src='../javascripts/alert.js')
+    script(src='../javascripts/modal.js')
+    script(src='../javascripts/dropdown.js')
+    script(src='../javascripts/scrollspy.js')
+    script(src='../javascripts/tab.js')
+    script(src='../javascripts/tooltip.js')
+    script(src='../javascripts/popover.js')
+    script(src='../javascripts/button.js')
+    script(src='../javascripts/collapse.js')
+    script(src='../javascripts/carousel.js')
+    script(src='../javascripts/typeahead.js')
+    script.
+      var quotesHref = "/images/";
+      var quotes = [
+      '"Look again at that dot. That\'s here. That\'s home. That\'s us. On it everyone you love, everyone you know, everyone you ever heard of, every human being who ever was, lived out their lives. The aggregate of our joy and suffering, thousands of confident religions, ideologies, and economic doctrines, every hunter and forager, every hero and coward, every creator and destroyer of civilization, every king and peasant, every young couple in love, every mother and father, hopeful child, inventor and explorer, every teacher of morals, every corrupt politician, every "superstar," every "supreme leader," every saint and sinner in the history of our species lived there, on a mote of dust suspended in a sunbeam." - Carl Sagan',
+      '"If I have seen further than others, it is by standing upon the shoulders of giants." - Isaac Newton',
+      '"Everyone you will ever meet knows something you don\'t" - Bill Nye',
+      '"As humans, we have a hunger to discover something new, reach new meaning, understand better the universe and our place in it." - Edward Frenkel',
+      '"The solution often turns out more beautiful than the puzzle." - Richard Dawkins',
+      '"There is no greater education than one that is self-driven." - Neil deGrasse Tyson',
+      '"Look up at the stars and not down at your feet. Try to make sense of what you see, and wonder about what makes the universe exist. Be curious." - Stephen Hawking'
+      ];
+      var quoteImages = ['paleBlue.jpg', 'physics.jpg', 'sharing.jpg', 'radiation.jpg', 'solarSystem.jpg', 'moonLanding.jpg', 'curiosity.jpg'];
+      var quotesUsed = [];
+      var quotesParent = document.getElementById('quotesParent');
+      var imageFirst=true;
+      var change = getRandomInt(0,1);
+      var loading = new Image();
+      loading.src = "/images/loading.gif";
+      function preloadImage(url)
+      {
+      var img=new Image();
+      img.src=url;
+      }
+      for(i = 0; i < quoteImages.length; i++) preloadImage(quotesHref + quoteImages[i]);
+      function viewCover(){
+      window.location.href = "/?override=true";
+      }
+      $(document).ready(function () {
+      $('.nav li a').click(function(e) {
+      $('.nav li').removeClass('active');
+      $('.nav li').removeClass('select');
+      var $parent = $(this).parent();
+      if (!$parent.hasClass('active')) {
+      $parent.addClass('active');
+      }
+      if (!$parent.hasClass('select')) {
+      $parent.addClass('select');
+      }
+      e.preventDefault();
+      });
+      });
+      $('#quotes').on('show.bs.collapse', function () {
+      if(quotesUsed.length == 0) {
+      var index = getRandomInt(0, quotes.length - 1);
+      document.getElementById('quoteImage').src = quotesHref + quoteImages[index];
+      document.getElementById('quoteText').innerHTML = quotes[index];
+      quotesUsed[0] = index;
+      }
+      });
+      $('#group').on('show.bs.collapse', function () {
+      $('#group .in').collapse('hide');
+      });
+      function swap() {
+      if(imageFirst) {
+      document.getElementById('quotesParent').insertBefore(document.getElementById('quoteText').parentNode, document.getElementById('quoteImage').parentNode.parentNode);
+      imageFirst = false;
+      }
+      else {
+      document.getElementById('quotesParent').insertBefore(document.getElementById('quoteImage').parentNode.parentNode, document.getElementById('quoteText').parentNode);
+      imageFirst = true;
+      }
+      }
+      if(change) swap();
+      function getRandomInt(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+      function contains(a, obj) {
+      for (var i = 0; i < a.length; i++) {
+      if (parseInt(a[i]) == obj) {
+      return true;
+      }
+      }
+      return false;
+      }
+      function nextQuote() {
+      swap();
+      if(quotesUsed.length == quotes.length) {
+      var last = parseInt(quotesUsed[quotesUsed.length - 1]);
+      var index = getRandomInt(0, quotes.length - 1);
+      while(index == last) index = getRandomInt(0, quotes.length - 1);
+      document.getElementById('quoteImage').src = quotesHref + quoteImages[index];
+      document.getElementById('quoteText').innerHTML = quotes[index];
+      quotesUsed = [index];
+      }
+      else {
+      var index = getRandomInt(0, quotes.length - 1);
+      while(contains(quotesUsed, index)) index = getRandomInt(0, quotes.length - 1);
+      document.getElementById('quoteImage').src = quotesHref + quoteImages[index];
+      document.getElementById('quoteText').innerHTML = quotes[index];
+      quotesUsed[quotesUsed.length] = index;
+      }
+      }
+        
