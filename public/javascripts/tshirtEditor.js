@@ -11,7 +11,7 @@ var line4;
  		canvas = new fabric.Canvas('tcanvas', {
 		  hoverCursor: 'pointer',
 		  selection: true,
-		  selectionBorderColor:'blue'
+		  selectionBorderColor:'black'
 		});
  		canvas.on({
 			 'object:moving': function(e) {		  	
