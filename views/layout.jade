@@ -19,6 +19,7 @@ html(lang='en')
     link(type='text/css', rel='stylesheet', href='../stylesheets/jquery.miniColors.css')
     link(href='../stylesheets/bootstrap.css', rel='stylesheet')
     link(href='../stylesheets/bootstrap-responsive.css', rel='stylesheet')
+    link(href='../stylesheets/font-awesome.min.css', rel='stylesheet')
     script(type='text/javascript').
     style(type='text/css').
       .footer {
@@ -143,7 +144,7 @@ html(lang='en')
               .clearfix
                 #texteditor.btn-group.inline.pull-left(style='display:none')
                   button#font-family.btn.dropdown-toggle(data-toggle='dropdown', title='Font Style')
-                    i.icon-font(style='width:19px;height:19px;')
+                    i.fa.fa-font(style='width:19px;height:19px;')
                   ul.dropdown-menu(role='menu', aria-labelledby='font-family-X')
                     li
                       a.Arial(tabindex='-1', href='#', onclick="setFont('Arial');") Arial
