@@ -11,8 +11,15 @@ var line4;
  		canvas = new fabric.Canvas('tcanvas', {
 		  hoverCursor: 'pointer',
 		  selection: true,
-		  selectionBorderColor:'black'
+		  selectionBorderColor:'blue'
 		});
+ 		canvas.on('object:selected', function(o){
+ 			var activeObj = o.target;
+ 			if(activeObj.get('type') == 'group') {
+ 			     activeObj.set({'borderColor':'#fbb802','cornerColor':'#fbb802'});
+
+ 			 }
+ 			});
  		canvas.on({
 			 'object:moving': function(e) {		  	
 			    e.target.opacity = 0.5;
