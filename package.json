@@ -12,8 +12,9 @@
     "express": "~4.12.4",
     "jade": "~1.9.2",
     "morgan": "~1.5.3",
-    "serve-favicon": "~2.2.1",
-    "node-mysql": "~0.4.0"
+    "node-mysql": "~0.4.0",
+    "pg": "6.1.0",
+    "serve-favicon": "~2.2.1"
   },
   "description": "Test",
   "main": "app.js",
