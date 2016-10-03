@@ -138,71 +138,43 @@ html(lang='en')
                     .input-append
                       input#text-string.inputdiv(type='text', placeholder='Add text to shirt')
                       button#add-text.btn.buttondiv.btn-primary(title='Add text') Add Text
-                    #texteditor.btn-group.inline.pull-left(style='display:none')
-                      select#font-family.btn.dropdown-toggle(data-toggle='dropdown', title='Font Style')
-                        option
-                          a.Arial(tabindex='-1', href='#', onclick="setFont('Arial');") Arial
-                    	option
-                      	  a.Helvetica(tabindex='-1', href='#', onclick="setFont('Helvetica');") Helvetica
-                    	option
-                      	  a.MyriadPro(tabindex='-1', href='#', onclick="setFont('Myriad Pro');") Myriad Pro
-                    	option
-                      	  a.Delicious(tabindex='-1', href='#', onclick="setFont('Delicious');") Delicious
-                    	option
-                      	  a.Verdana(tabindex='-1', href='#', onclick="setFont('Verdana');") Verdana
-                    	option
-                      	  a.Georgia(tabindex='-1', href='#', onclick="setFont('Georgia');") Georgia
-                    	option
-                      	  a.Courier(tabindex='-1', href='#', onclick="setFont('Courier');") Courier
-                    	option
-                      	  a.ComicSansMS(tabindex='-1', href='#', onclick="setFont('Comic Sans MS');") Comic Sans MS
-                    	option
-                      	  a.Impact(tabindex='-1', href='#', onclick="setFont('Impact');") Impact
-                    	option
-                      	  a.Monaco(tabindex='-1', href='#', onclick="setFont('Monaco');") Monaco
-                    	option
-                      	  a.Optima(tabindex='-1', href='#', onclick="setFont('Optima');") Optima
-                    	option
-                          a.Hoefler.Text(tabindex='-1', href='#', onclick="setFont('Hoefler Text');") Hoefler Text
-                    	option
-                          a.Plaster(tabindex='-1', href='#', onclick="setFont('Plaster');") Plaster
-                    	option
-                      	  a.Engagement(tabindex='-1', href='#', onclick="setFont('Engagement');") Engagement
           .span8
             div(align='center', style='min-height: 32px;')
               .clearfix
                 #texteditor.btn-group.inline.pull-left(style='display:none')
-                  button#font-family.btn.dropdown-toggle(data-toggle='dropdown', title='Font Style')
-                    i.icon-font(style='width:19px;height:19px;')
-                  ul.dropdown-menu(role='menu', aria-labelledby='font-family-X')
-                    li
-                      a.Arial(tabindex='-1', href='#', onclick="setFont('Arial');") Arial
-                    li
-                      a.Helvetica(tabindex='-1', href='#', onclick="setFont('Helvetica');") Helvetica
-                    li
-                      a.MyriadPro(tabindex='-1', href='#', onclick="setFont('Myriad Pro');") Myriad Pro
-                    li
-                      a.Delicious(tabindex='-1', href='#', onclick="setFont('Delicious');") Delicious
-                    li
-                      a.Verdana(tabindex='-1', href='#', onclick="setFont('Verdana');") Verdana
-                    li
-                      a.Georgia(tabindex='-1', href='#', onclick="setFont('Georgia');") Georgia
-                    li
-                      a.Courier(tabindex='-1', href='#', onclick="setFont('Courier');") Courier
-                    li
-                      a.ComicSansMS(tabindex='-1', href='#', onclick="setFont('Comic Sans MS');") Comic Sans MS
-                    li
-                      a.Impact(tabindex='-1', href='#', onclick="setFont('Impact');") Impact
-                    li
-                      a.Monaco(tabindex='-1', href='#', onclick="setFont('Monaco');") Monaco
-                    li
-                      a.Optima(tabindex='-1', href='#', onclick="setFont('Optima');") Optima
-                    li
-                      a.Hoefler.Text(tabindex='-1', href='#', onclick="setFont('Hoefler Text');") Hoefler Text
-                    li
-                      a.Plaster(tabindex='-1', href='#', onclick="setFont('Plaster');") Plaster
-                    li
-                      a.Engagement(tabindex='-1', href='#', onclick="setFont('Engagement');") Engagement
+                  div(style='display:none')
+                    button#font-family.btn.dropdown-toggle(data-toggle='dropdown', title='Font Style')
+                      i.icon-font(style='width:19px;height:19px;')
+                    ul.dropdown-menu(role='menu', aria-labelledby='font-family-X')
+                      li
+                        a.Arial(tabindex='-1', href='#', onclick="setFont('Arial');") Arial
+                      li
+                        a.Helvetica(tabindex='-1', href='#', onclick="setFont('Helvetica');") Helvetica
+                      li
+                        a.MyriadPro(tabindex='-1', href='#', onclick="setFont('Myriad Pro');") Myriad Pro
+                      li
+                        a.Delicious(tabindex='-1', href='#', onclick="setFont('Delicious');") Delicious
+                      li
+                        a.Verdana(tabindex='-1', href='#', onclick="setFont('Verdana');") Verdana
+                      li
+                        a.Georgia(tabindex='-1', href='#', onclick="setFont('Georgia');") Georgia
+                      li
+                        a.Courier(tabindex='-1', href='#', onclick="setFont('Courier');") Courier
+                      li
+                        a.ComicSansMS(tabindex='-1', href='#', onclick="setFont('Comic Sans MS');") Comic Sans MS
+                      li
+                        a.Impact(tabindex='-1', href='#', onclick="setFont('Impact');") Impact
+                      li
+                        a.Monaco(tabindex='-1', href='#', onclick="setFont('Monaco');") Monaco
+                      li
+                        a.Optima(tabindex='-1', href='#', onclick="setFont('Optima');") Optima
+                      li
+                        a.Hoefler.Text(tabindex='-1', href='#', onclick="setFont('Hoefler Text');") Hoefler Text
+                      li
+                        a.Plaster(tabindex='-1', href='#', onclick="setFont('Plaster');") Plaster
+                      li
+                        a.Engagement(tabindex='-1', href='#', onclick="setFont('Engagement');") Engagement
+                  
                   button#font-size.btn.dropdown-toggle(data-toggle='dropdown', title='Font Size')
                     i.icon-font(style='width:19px;height:19px;')
                   ul.dropdown-menu(role='menu', aria-labelledby='font-size-X')
