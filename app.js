@@ -1,10 +1,43 @@
-window.alert('meme');
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mysql = require('mysql');
+
+app.use(express.logger());
+
+var connection = mysql.createConnection({
+	host 	 : 'us-cdbr-iron-east-04.cleardb.net',
+	user 	 : 'bb1f84da0b6428',
+	password : 'f7cbf300',
+	database : 'heroku_59d4cdfdabbc8e9'
+})
+
+connection.connect();
+
+connection.query('CREATE TABLE user_saves (user_id int, ip VARCHAR(100),' +
+        'save1 int, save2 int, save3 int, save4 int, save5 int, save6 int, PRIMARY KEY(user_id))',
+function(err, result){
+// Case there is an error during the creation
+if(err) {
+console.log(err);
+} else {
+console.log("Table user_saves Created");
+}
+});
+
+connection.query('CREATE TABLE saves (save_id int, save_group int,' +
+        'img_location VARCHAR(100), text VARCHAR(100), left int, top int, angle int, PRIMARY KEY(save_id))',
+function(err, result){
+// Case there is an error during the creation
+if(err) {
+console.log(err);
+} else {
+console.log("Table saves Created");
+}
+});
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
