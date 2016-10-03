@@ -220,6 +220,15 @@ html(lang='en')
     // Placed at the end of the document so the pages load faster
     script(src='../javascripts/bootstrap.min.js')
     script(type='text/javascript').
+      jQuery.browser = {};
+      (function () {
+      jQuery.browser.msie = false;
+      jQuery.browser.version = 0;
+      if (navigator.userAgent.match(/MSIE ([0-9]+)\./)) {
+      jQuery.browser.msie = true;
+      jQuery.browser.version = RegExp.$1;
+      }
+      })();
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-35639689-1']);
       _gaq.push(['_trackPageview']);
