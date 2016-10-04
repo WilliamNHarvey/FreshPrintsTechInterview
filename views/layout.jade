@@ -228,7 +228,7 @@ html(lang='en')
     
       $("#submit").click(function () {
       var data = new FormData();
-      data.append('image', $('#upload'));
+      data.append('image', $('#upload').get(0).file);
       console.log(data);
       jQuery.ajax({
       url: '/upload',
