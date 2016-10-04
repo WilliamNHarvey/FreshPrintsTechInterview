@@ -61,13 +61,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/users', users);
 
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
-});
-
 function makeid()
 {
     var text = "";
@@ -85,6 +78,14 @@ app.post('/upload', function (req, res) {
 	  // req.file is the `avatar` file
 	  // req.body will hold the text fields, if there were any
 })
+
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  var err = new Error('Not Found');
+  err.status = 404;
+  next(err);
+});
+
 
 // error handlers
 
