@@ -72,8 +72,8 @@ function makeid()
     return text;
 }
 var random = makeid();
-
-app.post('/upload', upload.single('avatar'), function (req, res, next) {
+var upload = multer({storage:storage}).single('avatar');
+app.post('/upload', upload, function (req, res, next) {
 		console.log(req.file);
 	  // req.file is the `avatar` file
 	  // req.body will hold the text fields, if there were any
