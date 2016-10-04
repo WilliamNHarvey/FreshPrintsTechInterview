@@ -35,7 +35,7 @@ console.log("Table user_saves Created");
 });
 
 connection.query('CREATE TABLE saves (save_id int, save_group int,' +
-        'img_location VARCHAR(100), text VARCHAR(100), left int, top int, angle int, PRIMARY KEY(save_id))',
+        'img_location VARCHAR(100), text VARCHAR(100), left_shift int, top_shift int, angle_shift int, PRIMARY KEY(save_id))',
 function(err, result){
 // Case there is an error during the creation
 if(err) {
