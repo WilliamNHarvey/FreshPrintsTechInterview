@@ -129,7 +129,7 @@ html(lang='en')
                   .well
                     form#uploadForm(name='upload', enctype='multipart/form-data', action='/upload', method='POST')
                       input#upload(type='file', name='file')
-                      button#submit(type='button', value='submit') Upload Image
+                      button#submit(type='submit', value='submit') Upload Image
                   .well
                     #avatarlist
                       img.img-polaroid(style='cursor:pointer;', src='../images/invisibleman.jpg')
@@ -230,10 +230,29 @@ html(lang='en')
       var data = new FormData();
       data.append('image', document.getElementById('uploadForm'));
       console.log(document.getElementById('uploadForm'));
-      var req = new XMLHttpRequest();
+      $(function(){
+      $('form').submit(function(e){
+      //formData sets: multipart/form-data
+      var formData = new FormData($(this)[0]);
+      $.ajax({
+      type:'POST',
+      url:'/upload',
+      data : formData,                  
+      contentType: false,
+      processData: false
+      }).done(function(data){
+      //print response on success
+      console.log(data);
+      }).fail(function(data) {
+      console.log('Error');
+      });
+      e.preventDefault(); 
+      });
+      })();   
+      /*var req = new XMLHttpRequest();
       req.open('POST', '/upload')
       req.send(data);
-      /*$.ajax({
+      $.ajax({
       url: '/upload',
       data: data,
       cache: false,
