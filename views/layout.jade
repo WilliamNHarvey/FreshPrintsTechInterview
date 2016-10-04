@@ -127,7 +127,7 @@ html(lang='en')
                       li.color-preview(title='Cherry Red', style='background-color:#c50404;')
                 #tab2.tab-pane
                   .well
-                    form(name='upload', enctype='multipart/form-data', action='/upload', method='POST')
+                    form#uploadForm(name='upload', enctype='multipart/form-data', action='/upload', method='POST')
                       input#upload(type='file', name='file')
                       button#submit(type='button', value='submit') Upload Image
                   .well
@@ -228,9 +228,7 @@ html(lang='en')
     
       $("#submit").click(function () {
       var data = new FormData();
-      jQuery('#upload').file, function(i, file) {
-      data.append('file-'+i, file);
-      }
+      data.append('image', $('input[type=file]')[0].files[0]); 
       jQuery.ajax({
       url: '/upload',
       data: data,
