@@ -130,6 +130,7 @@ html(lang='en')
                     form#uploadForm(name='upload', enctype='multipart/form-data', action='/upload', method='POST')
                       input#upload(type='file', name='avatar')
                       button#submit(type='submit', value='submit') Upload Image
+                      img#lastImg(src="")
                   .well
                     #avatarlist
                       img.img-polaroid(style='cursor:pointer;', src='../images/invisibleman.jpg')
@@ -239,6 +240,7 @@ html(lang='en')
       }).done(function(data){
       //print response on success
       console.log(data);
+      document.getElementById('lastImg').src = '/lastImage';
       }).fail(function(data) {
       console.log('Error');
       });

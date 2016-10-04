@@ -71,13 +71,32 @@ function makeid()
 
     return text;
 }
-
 var upload = multer({ dest: './public/user_img/'}); 
+var path = require('path'), fs = require('fs');
+var targetPath;
 app.post('/upload', upload.single('avatar'), function (req, res) {
 		console.log(req.file);
-	  // req.file is the `avatar` file
-	  // req.body will hold the text fields, if there were any
+		var tempPath = req.file.path,
+        
+    if (path.extname(req.file.name).toLowerCase() === '.png' || path.extname(req.file.name).toLowerCase() === '.jpg' || path.extname(req.file.name).toLowerCase() === '.jpeg') {
+    	var random = makeid()
+    	targetPath = path.resolve('/public/user_img/' + random + path.extname(req.files.file.name).toLowerCase());
+        fs.rename(tempPath, targetPath, function(err) {
+            if (err) throw err;
+            console.log("Upload completed!");
+        });
+    } else {
+        fs.unlink(tempPath, function () {
+            if (err) throw err;
+            console.error("Only .png, jpg, jpeg files are allowed!");
+        });
+    }
 })
+
+app.get('/lastImage', function (req, res) {
+	console.log(targetPath);
+    res.sendfile(targetPath);
+}); 
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
