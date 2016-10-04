@@ -86,7 +86,7 @@ app.post('/upload', upload.single('avatar'), function (req, res) {
         fs.rename(tempPath, targetPath, function(err) {
             if (err) throw err;
             console.log("Upload completed!");
-        });*/
+        });
     } else {
         fs.unlink(tempPath, function () {
             console.error("Only .png, jpg, jpeg files are allowed!");
