@@ -227,7 +227,7 @@ html(lang='en')
     script(type='text/javascript').
       $("#submit").click(function () {
       var upload = $("#upload").val();
-      $.post('/upload/', {
+      $.post('/upload', {
       upload: upload
       });
       });
