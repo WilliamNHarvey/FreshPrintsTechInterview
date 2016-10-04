@@ -71,18 +71,9 @@ function makeid()
 
     return text;
 }
-var random = makeid();
-const storage = multer.diskStorage({
-    destination :function(req,file,cb){
-        cb(null,'./uploads');
-    },
-    filename : function(req,file,cb){
-        cb(null,req.file.originalname+'.jpg');
-    } 
-});
 
-var upload = multer({storage:storage}).single('avatar');
-app.post('/upload', upload, function (req, res) {
+var upload = multer({ dest: './public/user_img/'}); 
+app.post('/upload', upload.single('avatar'), function (req, res) {
 		console.log(req.file);
 	  // req.file is the `avatar` file
 	  // req.body will hold the text fields, if there were any
