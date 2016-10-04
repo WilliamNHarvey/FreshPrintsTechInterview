@@ -72,7 +72,8 @@ function makeid()
     return text;
 }
 var random = makeid();
-app.post('/upload', function (req, res) {
+
+app.post('/upload', upload.single('avatar'), function (req, res, next) {
 		console.log('sup');
 		console.log(req.upload.file)
 	  // req.file is the `avatar` file
