@@ -78,9 +78,9 @@ app.post('/upload', upload.single('avatar'), function (req, res) {
 	console.log(req.file);
 	var tempPath = req.file.path;
         
-    if (path.extname(req.file.name).toLowerCase() === '.png' || path.extname(req.file.name).toLowerCase() === '.jpg' || path.extname(req.file.name).toLowerCase() === '.jpeg') {
+    if (path.extname(req.file.originalname).toLowerCase() === '.png' || path.extname(req.file.originalname).toLowerCase() === '.jpg' || path.extname(req.file.originalname).toLowerCase() === '.jpeg') {
     	var random = makeid()
-    	targetPath = path.resolve('/public/user_img/' + random + path.extname(req.files.file.name).toLowerCase());
+    	targetPath = path.resolve('/public/user_img/' + random + path.extname(req.files.file.originalname).toLowerCase());
         fs.rename(tempPath, targetPath, function(err) {
             if (err) throw err;
             console.log("Upload completed!");
