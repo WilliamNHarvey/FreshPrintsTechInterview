@@ -80,6 +80,8 @@ app.post('/upload', upload.single('avatar'), function (req, res) {
         
     if (path.extname(req.file.originalname).toLowerCase() === '.png' || path.extname(req.file.originalname).toLowerCase() === '.jpg' || path.extname(req.file.originalname).toLowerCase() === '.jpeg') {
     	var random = makeid()
+    	var string = './public/user_img/' + random + path.extname(req.files.file.originalname).toLowerCase();
+    	console.log(string);
     	console.log(path.resolve('./public/user_img/'));
     	/*targetPath = path.resolve('./public/user_img/' + random + path.extname(req.files.file.originalname).toLowerCase());
     	console.log(targetPath);
