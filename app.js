@@ -87,7 +87,6 @@ app.post('/upload', upload.single('avatar'), function (req, res) {
         });
     } else {
         fs.unlink(tempPath, function () {
-            if (err) throw err;
             console.error("Only .png, jpg, jpeg files are allowed!");
         });
     }
