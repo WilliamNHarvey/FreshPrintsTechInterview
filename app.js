@@ -72,7 +72,9 @@ function makeid()
     return text;
 }
 var upload = multer({ dest: './public/images/'}); 
-var path = require('path'), fs = require('fs');
+var path = require('path')
+var fs = require('fs');
+var util = require('util');
 var targetPath;
 app.post('/upload', upload.single('avatar'), function (req, res) {
 	console.log(req.file);
@@ -83,10 +85,12 @@ app.post('/upload', upload.single('avatar'), function (req, res) {
     	//var string = './public/user_img/' + random + path.extname(req.files.file.originalname).toLowerCase();
     	targetPath = path.resolve('./public/images/' + random + path.extname(req.file.originalname).toLowerCase());
     	console.log(targetPath);
-        fs.rename(tempPath, targetPath, function(err) {
-            if (err) throw err;
-            console.log("Upload completed!");
-        });
+    	var readStream = fs.createReadStream(tempPath)
+    	var writeStream = fs.createWriteStream(targetPath);
+
+    	util.pump(readStream, writeStream, function() {
+    	    fs.unlinkSync(files.upload.path);
+    	});
     } else {
         fs.unlink(tempPath, function () {
             console.error("Only .png, jpg, jpeg files are allowed!");
