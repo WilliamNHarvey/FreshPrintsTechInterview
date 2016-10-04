@@ -23,27 +23,7 @@ var connection = mysql.createConnection({
 
 connection.connect();
 
-connection.query('CREATE TABLE IF NOT EXISTS user_saves (user_id int, ip VARCHAR(100),' +
-        'save1 int, save2 int, save3 int, save4 int, save5 int, save6 int, PRIMARY KEY(user_id))',
-function(err, result){
-// Case there is an error during the creation
-if(err) {
-console.log(err);
-} else {
-console.log("Table user_saves Created");
-}
-});
 
-connection.query('CREATE TABLE IF NOT EXISTS saves (save_id int, save_group int,' +
-        'img_location VARCHAR(100), text VARCHAR(100), left_shift int, top_shift int, angle_shift int, PRIMARY KEY(save_id))',
-function(err, result){
-// Case there is an error during the creation
-if(err) {
-console.log(err);
-} else {
-console.log("Table saves Created");
-}
-});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
