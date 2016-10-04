@@ -72,6 +72,15 @@ function makeid()
     return text;
 }
 var random = makeid();
+const storage = multer.diskStorage({
+    destination :function(req,file,cb){
+        cb(null,'./uploads');
+    },
+    filename : function(req,file,cb){
+        cb(null,req.file.originalname+'.jpg');
+    } 
+});
+
 var upload = multer({storage:storage}).single('avatar');
 app.post('/upload', upload, function (req, res, next) {
 		console.log(req.file);
