@@ -12,7 +12,6 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
-app.use(app.router);
 var upload = multer({ dest: './public/user_img/' })
 app.use(morgan('combined'));
 
@@ -83,15 +82,7 @@ if (app.get('env') === 'development') {
   });
 }
 
-// production error handler
-// no stacktraces leaked to user
-app.use(function(err, req, res, next) {
-  res.status(err.status || 500);
-  res.render('error', {
-    message: err.message,
-    error: {}
-  });
-});
+
 
 function makeid()
 {
@@ -111,4 +102,13 @@ app.post('/upload', function (req, res) {
 	  // req.body will hold the text fields, if there were any
 })
 
+// production error handler
+// no stacktraces leaked to user
+app.use(function(err, req, res, next) {
+  res.status(err.status || 500);
+  res.render('error', {
+    message: err.message,
+    error: {}
+  });
+});
 module.exports = app;
