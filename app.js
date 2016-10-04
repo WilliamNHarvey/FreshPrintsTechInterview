@@ -12,6 +12,7 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
+app.use(app.router);
 var upload = multer({ dest: './public/user_img/' })
 app.use(morgan('combined'));
 
