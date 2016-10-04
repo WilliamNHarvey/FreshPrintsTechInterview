@@ -74,7 +74,7 @@ function makeid()
 var random = makeid();
 
 app.post('/upload', upload.single('avatar'), function (req, res, next) {
-		console.log(req);
+		console.log(req.file);
 	  // req.file is the `avatar` file
 	  // req.body will hold the text fields, if there were any
 })
