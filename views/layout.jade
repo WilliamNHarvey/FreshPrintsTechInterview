@@ -228,14 +228,18 @@ html(lang='en')
     
       $("#submit").click(function () {
       var data = new FormData();
-      data.append('image', $('input[type=file]')[0].files[0]); 
+      data.append('image', $('input[type=file]')[0].files[0]);
+      console.log(data);
       jQuery.ajax({
       url: '/upload',
       data: data,
       cache: false,
       contentType: false,
       processData: false,
-      type: 'POST'
+      type: 'POST',
+      success: function() {
+      console.log('succ');
+      }
       });
       });
       jQuery.browser = {};
