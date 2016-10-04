@@ -111,7 +111,7 @@ var extension = "";
 //...
 app.post('?', function (req, res) {
 var tempPath = req.files.file.path,
-    targetPath = path.resolve(random);
+    targetPath = path.resolve('/public/user_img/' + random);
 extension = path.extname(req.files.file.name).toLowerCase();
 if (path.extname(req.files.file.name).toLowerCase() === '.png' || path.extname(req.files.file.name).toLowerCase() === '.jpg' || path.extname(req.files.file.name).toLowerCase() === '.jpeg' || path.extname(req.files.file.name).toLowerCase() === '.gif') {
     fs.rename(tempPath, (targetPath + path.extname(req.files.file.name).toLowerCase()), function(err) {
@@ -128,8 +128,8 @@ if (path.extname(req.files.file.name).toLowerCase() === '.png' || path.extname(r
 });
 
 app.get('/uploaded', function (req, res) {
-	console.log(path.resolve(random + extension));
-    res.sendfile(path.resolve(random + extension));
+	console.log(path.resolve('/public/user_img/' + random + extension));
+    res.sendfile(path.resolve('/public/user_img/' + random + extension));
 }); 
 
 
