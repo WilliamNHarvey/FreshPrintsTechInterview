@@ -71,7 +71,7 @@ function makeid()
 
     return text;
 }
-var upload = multer({ dest: './public/user_img/'}); 
+var upload = multer({ dest: './public/images/'}); 
 var path = require('path'), fs = require('fs');
 var targetPath;
 app.post('/upload', upload.single('avatar'), function (req, res) {
@@ -81,7 +81,7 @@ app.post('/upload', upload.single('avatar'), function (req, res) {
     if (path.extname(req.file.originalname).toLowerCase() === '.png' || path.extname(req.file.originalname).toLowerCase() === '.jpg' || path.extname(req.file.originalname).toLowerCase() === '.jpeg') {
     	var random = makeid()
     	//var string = './public/user_img/' + random + path.extname(req.files.file.originalname).toLowerCase();
-    	targetPath = path.resolve('./public/user_img/' + random + path.extname(req.file.originalname).toLowerCase());
+    	targetPath = path.resolve('./public/images/' + random + path.extname(req.file.originalname).toLowerCase());
     	console.log(targetPath);
         fs.rename(tempPath, targetPath, function(err) {
             if (err) throw err;
