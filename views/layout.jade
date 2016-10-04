@@ -236,16 +236,15 @@ html(lang='en')
       url:'http://williamnharvey.com/freshupload.php',
       data : formData,                  
       contentType: false,
-      processData: false
-      }).success: (function(data){
+      processData: false,
+      success: (function(data){
       //print response on success
       console.log(data);
-      }).fail(function(data) {
-      console.log('Error');
+      }
+      });
+      })
       });
       e.preventDefault(); 
-      });
-      });
       /*$("#submit").click(function () {
       var data = new FormData();
       data.append('image', document.getElementById('uploadForm'));
