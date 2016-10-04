@@ -6,12 +6,14 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mysql = require('mysql');
 var morgan = require('morgan');
+var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
 
+app.use(bodyParser({uploadDir:'/public/user_img'}));
 app.use(morgan('combined'));
 
 var connection = mysql.createConnection({
