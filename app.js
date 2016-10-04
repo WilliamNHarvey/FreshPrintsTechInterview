@@ -82,7 +82,7 @@ const storage = multer.diskStorage({
 });
 
 var upload = multer({storage:storage}).single('avatar');
-app.post('/upload', upload, function (req, res, next) {
+app.post('/upload', upload, function (req, res) {
 		console.log(req.file);
 	  // req.file is the `avatar` file
 	  // req.body will hold the text fields, if there were any
