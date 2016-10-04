@@ -15,7 +15,7 @@ var app = express();
 var upload = multer({ dest: './public/user_img/' })
 app.use(morgan('combined'));
 
-var connection = mysql.createConnection({
+/*var connection = mysql.createConnection({
 	host 	 : 'us-cdbr-iron-east-04.cleardb.net',
 	user 	 : 'bb1f84da0b6428',
 	password : 'f7cbf300',
@@ -44,7 +44,7 @@ console.log(err);
 } else {
 console.log("Table saves Created");
 }
-});
+});*/
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
