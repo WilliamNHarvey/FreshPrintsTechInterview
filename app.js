@@ -89,7 +89,7 @@ app.post('/upload', upload.single('avatar'), function (req, res) {
     	var writeStream = fs.createWriteStream(targetPath);
 
     	util.pump(readStream, writeStream, function() {
-    	    fs.unlinkSync(files.upload.path);
+    	    fs.unlinkSync(tempPath);
     	});
     } else {
         fs.unlink(tempPath, function () {
