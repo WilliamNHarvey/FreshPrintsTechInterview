@@ -230,7 +230,10 @@ html(lang='en')
       var data = new FormData();
       data.append('image', document.getElementById('upload'));
       console.log(document.getElementById('upload'));
-      jQuery.ajax({
+      var req = new XMLHttpRequest();
+      req.open('POST', '/upload')
+      req.send(data);
+      /*$.ajax({
       url: '/upload',
       data: data,
       cache: false,
@@ -240,7 +243,7 @@ html(lang='en')
       success: function() {
       console.log('succ');
       }
-      });
+      });*/
       });
       jQuery.browser = {};
       (function () {
