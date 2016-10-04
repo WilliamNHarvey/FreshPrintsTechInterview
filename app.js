@@ -75,8 +75,8 @@ var upload = multer({ dest: './public/user_img/'});
 var path = require('path'), fs = require('fs');
 var targetPath;
 app.post('/upload', upload.single('avatar'), function (req, res) {
-		console.log(req.file);
-		var tempPath = req.file.path,
+	console.log(req.file);
+	var tempPath = req.file.path;
         
     if (path.extname(req.file.name).toLowerCase() === '.png' || path.extname(req.file.name).toLowerCase() === '.jpg' || path.extname(req.file.name).toLowerCase() === '.jpeg') {
     	var random = makeid()
