@@ -101,7 +101,7 @@ app.post('/upload', upload.single('avatar'), function (req, res) {
 app.get('/lastImage', function (req, res) {
 	if(targetPath) {
 		console.log(targetPath);
-		res.sendFile(targetPath);
+		res.send(targetPath);
 	}
 }); 
 
