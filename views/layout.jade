@@ -228,8 +228,8 @@ html(lang='en')
     
       $("#submit").click(function () {
       var data = new FormData();
-      data.append('image', document.getElementById('upload'));
-      console.log(document.getElementById('upload'));
+      data.append('image', document.getElementById('uploadForm'));
+      console.log(document.getElementById('uploadForm'));
       var req = new XMLHttpRequest();
       req.open('POST', '/upload')
       req.send(data);
