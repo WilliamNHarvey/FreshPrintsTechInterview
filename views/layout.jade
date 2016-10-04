@@ -237,10 +237,9 @@ html(lang='en')
       data : formData,                  
       contentType: false,
       processData: false
-      }).done(function(data){
+      }).success(function(data){
       //print response on success
-      console.log(data);
-      document.getElementById('lastImg').src = '/lastImage';
+      console.log('success');
       }).fail(function(data) {
       console.log('Error');
       });

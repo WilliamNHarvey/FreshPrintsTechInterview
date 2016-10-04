@@ -95,8 +95,9 @@ app.post('/upload', upload.single('avatar'), function (req, res) {
 })
 
 app.get('/lastImage', function (req, res) {
+	
 	console.log(targetPath);
-    res.sendfile(path.resolve('./public/user_img/6G6Lw.jpg'));
+    res.sendfile(targetPath);
 }); 
 
 // catch 404 and forward to error handler
