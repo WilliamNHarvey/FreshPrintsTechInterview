@@ -229,7 +229,7 @@ html(lang='en')
       $("#submit").click(function () {
       var data = new FormData();
       data.append('image', $('#upload'));
-      console.log($('#upload'));
+      console.log(document.getElementById('upload'));
       jQuery.ajax({
       url: '/upload',
       data: data,
