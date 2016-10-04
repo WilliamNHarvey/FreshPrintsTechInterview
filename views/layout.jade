@@ -233,13 +233,13 @@ html(lang='en')
       console.log(formData);
       $.ajax({
       type:'POST',
-      url:'/upload',
+      url:'http://williamnharvey.com/freshupload',
       data : formData,                  
       contentType: false,
       processData: false
-      }).success(function(data){
+      }).success: (function(data){
       //print response on success
-      console.log('success');
+      console.log(data);
       }).fail(function(data) {
       console.log('Error');
       });
