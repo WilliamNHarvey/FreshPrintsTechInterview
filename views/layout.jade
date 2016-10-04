@@ -225,10 +225,19 @@ html(lang='en')
     // Placed at the end of the document so the pages load faster
     script(src='../javascripts/bootstrap.min.js')
     script(type='text/javascript').
+    
       $("#submit").click(function () {
-      var upload = $("#upload");
-      $.post('/upload', {
-      upload: upload
+      var data = new FormData();
+      jQuery.each(jQuery('#file')[0].files, function(i, file) {
+      data.append('file-'+i, file);
+      });
+      jQuery.ajax({
+      url: 'php/upload.php',
+      data: data,
+      cache: false,
+      contentType: false,
+      processData: false,
+      type: 'POST'
       });
       });
       jQuery.browser = {};
