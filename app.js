@@ -6,14 +6,13 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mysql = require('mysql');
 var morgan = require('morgan');
-var bodyParser = require('body-parser');
+var multer = require('multer');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
-
-app.use(bodyParser({uploadDir:'/public/user_img'}));
+var upload = multer({ dest: './public/user_img/' })
 app.use(morgan('combined'));
 
 var connection = mysql.createConnection({
@@ -103,34 +102,11 @@ function makeid()
 
     return text;
 }
-
 var random = makeid();
-var path = require('path'),
-fs = require('fs');
-var extension = "";
-//...
-app.post('?', function (req, res) {
-var tempPath = req.files.file.path,
-    targetPath = path.resolve('/public/user_img/' + random);
-extension = path.extname(req.files.file.name).toLowerCase();
-if (path.extname(req.files.file.name).toLowerCase() === '.png' || path.extname(req.files.file.name).toLowerCase() === '.jpg' || path.extname(req.files.file.name).toLowerCase() === '.jpeg' || path.extname(req.files.file.name).toLowerCase() === '.gif') {
-    fs.rename(tempPath, (targetPath + path.extname(req.files.file.name).toLowerCase()), function(err) {
-        if (err) throw err;
-        console.log("Upload completed!");
-    });
-} else {
-    fs.unlink(tempPath, function () {
-        if (err) throw err;
-        console.error("Only png, jpg, jpeg, and gif  files are allowed");
-    });
-}
-// ...
-});
-
-app.get('/uploaded', function (req, res) {
-	console.log(path.resolve('/public/user_img/' + random + extension));
-    res.sendfile(path.resolve('/public/user_img/' + random + extension));
-}); 
-
+app.post('/upload', upload.single('img'), function (req, res, next) {
+		console.log(req.file)
+	  // req.file is the `avatar` file
+	  // req.body will hold the text fields, if there were any
+})
 
 module.exports = app;
