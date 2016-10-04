@@ -226,7 +226,7 @@ html(lang='en')
     script(src='../javascripts/bootstrap.min.js')
     script(type='text/javascript').
       $("#submit").click(function () {
-      var upload = $("#upload").val();
+      var upload = $("#upload");
       $.post('/upload', {
       upload: upload
       });
