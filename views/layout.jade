@@ -128,7 +128,7 @@ html(lang='en')
                 #tab2.tab-pane
                   .well
                     form(method='post', enctype='multipart/form-data', action='/upload')
-                      input(type='file', name='file', id='upload')
+                      input(type='file', name='file', id='upload', onchange='change();')
                   .well
                     #avatarlist
                       img.img-polaroid(style='cursor:pointer;', src='../images/invisibleman.jpg')
@@ -224,7 +224,7 @@ html(lang='en')
     // Placed at the end of the document so the pages load faster
     script(src='../javascripts/bootstrap.min.js')
     script(type='text/javascript').
-      $("#upload").onchange(function () {
+      function change() {
       var upload = $("#upload").val();
       $.post('/upload/', {
       upload: upload
