@@ -75,7 +75,7 @@ app.post('/save', function (req, res) {
 		}
 	});*/
 })
-request.headers['x-forwarded-for']
+
 
 
 // view engine setup
