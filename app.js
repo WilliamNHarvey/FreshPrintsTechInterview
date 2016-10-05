@@ -23,7 +23,24 @@ var connection = mysql.createConnection({
 })
 
 connection.connect();
-
+connection.query('DROP TABLE user_saves',
+function(err, result){
+	// Case there is an error during the creation
+	if(err) {
+	console.log(err);
+	} else {
+	console.log("Table user_saves dropped");
+	}
+	});
+connection.query('DROP TABLE saves',
+		function(err, result){
+			// Case there is an error during the creation
+			if(err) {
+			console.log(err);
+			} else {
+			console.log("Table saves dropped");
+			}
+			});
 connection.query('CREATE TABLE IF NOT EXISTS user_saves (user_id int, ip VARCHAR(100),' +
         'save1 int, save2 int, save3 int, save4 int, save5 int, save6 int, PRIMARY KEY(user_id))',
 function(err, result){

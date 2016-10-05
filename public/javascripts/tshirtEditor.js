@@ -101,7 +101,6 @@ function addUploadedImg(src) {
 	  		  hasRotatingPoint:true
 		    });		    
             canvas.add(textSample);	
-            console.log(textSample.width);
             canvas.item(canvas.item.length-1).hasRotatingPoint = true;    
             $("#texteditor").css('display', 'block');
             $("#imageeditor").css('display', 'block');
