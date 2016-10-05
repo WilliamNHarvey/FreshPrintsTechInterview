@@ -233,7 +233,7 @@ html(lang='en')
       //formData sets: multipart/form-data
       function uploadImage() {
       var formData = new FormData($('#uploadForm')[0]);
-      $('#loadingImg').style='display:inline-block;';
+      $('#loadingImg').show();
       $.ajax({
       type:'POST',
       url:'http://williamnharvey.com/freshupload.php',
