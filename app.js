@@ -98,13 +98,6 @@ app.post('/upload', upload.single('avatar'), function (req, res) {
     }
 })
 
-app.get('/lastImage', function (req, res) {
-	if(targetPath) {
-		console.log(targetPath);
-		res.send(targetPath);
-	}
-}); 
-
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
