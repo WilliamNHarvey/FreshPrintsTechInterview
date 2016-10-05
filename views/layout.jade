@@ -130,11 +130,11 @@ html(lang='en')
                       li.color-preview(title='Heather Navy', style='background-color:#3469b7;')
                       li.color-preview(title='Cherry Red', style='background-color:#c50404;')
                 #tab2.tab-pane
-                  .well
+                  .well(style='text-align:center;')
                     form#uploadForm(name='upload', enctype='multipart/form-data', action='/upload', method='POST')
                       label.btn.uploaddiv.btn-primary Upload Image
                         input#upload(type='file', name='avatar', style='display:none;')
-                    img#loadingImg(src='../images/loading.gif', style='display:none;width:50%;text-align:center;')
+                    img#loadingImg(src='../images/loading.gif', style='display:none;width:50%;')
                   .well
                     #avatarlist
                       img.img-polaroid(style='cursor:pointer;', src='../images/invisibleman.jpg')
