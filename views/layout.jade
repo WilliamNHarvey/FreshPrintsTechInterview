@@ -224,8 +224,8 @@ html(lang='en')
     // Placed at the end of the document so the pages load faster
     script(src='../javascripts/bootstrap.min.js')
     script(type='text/javascript').
-      $('#upload').onchange = function() {
-      $('#uploadForm').submit();
+      document.getElementById("upload").onchange = function() {
+      document.getElementById("uploadForm").submit();
       };
       $(function(){
       $('#uploadForm').submit(function(e){
