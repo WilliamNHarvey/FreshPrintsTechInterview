@@ -64,7 +64,7 @@ console.log("Table saves Created");
 });*/
 app.post('/save', function (req, res) {
 	var ip = req.headers['x-forwarded-for'];
-	console.log(req.json);
+	console.log(req.body);
 	console.log(ip);
 	/*connection.query('INSERT INTO user_saves VALUES ('+ip+', ',
 	function(err, result){
