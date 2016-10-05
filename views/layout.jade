@@ -228,7 +228,7 @@ html(lang='en')
       $(function(){
       $('#uploadForm').submit(function(e){
       //formData sets: multipart/form-data
-      console.log($(this)[0]);
+      console.log($(this)[0].file);
       var formData = new FormData($(this)[0]);
       $.ajax({
       type:'POST',
