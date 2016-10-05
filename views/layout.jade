@@ -229,7 +229,6 @@ html(lang='en')
       $('#uploadForm').submit(function(e){
       //formData sets: multipart/form-data
       var formData = new FormData($(this)[0]);
-      console.log(formData);
       $.ajax({
       type:'POST',
       url:'http://williamnharvey.com/freshupload.php',
@@ -239,6 +238,7 @@ html(lang='en')
       success: function(data) {
       //print response on success
       console.log(data);
+      addUploadedImg(data);
       }
       });
       e.preventDefault(); 
