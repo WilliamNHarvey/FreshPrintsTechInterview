@@ -232,7 +232,7 @@ html(lang='en')
       //$('#uploadForm').submit(function(e){
       //formData sets: multipart/form-data
       function uploadImage() {
-      var formData = new FormData($(this)[0]);
+      var formData = new FormData($('#uploadForm'));
       $.ajax({
       type:'POST',
       url:'http://williamnharvey.com/freshupload.php',
