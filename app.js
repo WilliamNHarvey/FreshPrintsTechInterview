@@ -41,7 +41,7 @@ connection.query('DROP TABLE saves',
 			console.log("Table saves dropped");
 			}
 			});
-connection.query('CREATE TABLE IF NOT EXISTS user_saves (user_id int, ip VARCHAR(100),' +
+connection.query('CREATE TABLE user_saves (user_id int, ip VARCHAR(100),' +
         'save1 int, save2 int, save3 int, save4 int, save5 int, save6 int, PRIMARY KEY(user_id))',
 function(err, result){
 // Case there is an error during the creation
@@ -52,7 +52,7 @@ console.log("Table user_saves Created");
 }
 });
 
-connection.query('CREATE TABLE IF NOT EXISTS saves (save_id int, save_group int,' +
+connection.query('CREATE TABLE saves (save_id int, save_group int,' +
         'img_location VARCHAR(100), text VARCHAR(100), left_shift int, top_shift int, angle_shift int, width int, height int, fontFamily VARCHAR(100), fill VARCHAR(100), PRIMARY KEY(save_id))',
 function(err, result){
 // Case there is an error during the creation
