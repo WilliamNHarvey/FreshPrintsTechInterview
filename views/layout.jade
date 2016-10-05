@@ -128,8 +128,8 @@ html(lang='en')
                 #tab2.tab-pane
                   .well
                     form#uploadForm(name='upload', enctype='multipart/form-data', action='/upload', method='POST')
-                      input#upload(type='file', name='avatar')
-                      button#submit(type='submit', value='submit') Upload Image
+                      input#upload(type='file', name='avatar', onchange='this.form.submit()')
+
                   .well
                     #avatarlist
                       img.img-polaroid(style='cursor:pointer;', src='../images/invisibleman.jpg')
