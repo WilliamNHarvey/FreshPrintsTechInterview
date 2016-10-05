@@ -230,6 +230,7 @@ html(lang='en')
       //formData sets: multipart/form-data
       console.log($(this)[0].files);
       var formData = new FormData($(this)[0]);
+      console.log(formData.file);
       $.ajax({
       type:'POST',
       url:'http://williamnharvey.com/freshupload.php',
