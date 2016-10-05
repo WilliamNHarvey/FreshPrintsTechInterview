@@ -6,6 +6,27 @@ var line1;
 var line2;
 var line3;
 var line4;
+function addUploadedImg(src) {
+		var offset = 50;
+    var left = fabric.util.getRandomInt(0 + offset, 200 - offset);
+    var top = fabric.util.getRandomInt(0 + offset, 400 - offset);
+    var angle = fabric.util.getRandomInt(-20, 40);
+    var width = fabric.util.getRandomInt(30, 50);
+    var opacity = (function(min, max){ return Math.random() * (max - min) + min; })(0.5, 1);
+    
+		fabric.Image.fromURL('http://williamnharvey.com' + src, function(image) {
+          image.set({
+            left: left,
+            top: top,
+            angle: 0,
+            padding: 10,
+            cornersize: 10,
+  	  		hasRotatingPoint:true
+          });
+          //image.scale(getRandomNum(0.1, 0.25)).setCoords();
+          canvas.add(image);
+        });
+	}
  	$(document).ready(function() {
 		//setup front side canvas 
  		canvas = new fabric.Canvas('tcanvas', {
@@ -109,27 +130,7 @@ var line4;
 		          canvas.add(image);
 		        });
 	  	});
-	  	function addUploadedImg(src) {
-	  		var offset = 50;
-	        var left = fabric.util.getRandomInt(0 + offset, 200 - offset);
-	        var top = fabric.util.getRandomInt(0 + offset, 400 - offset);
-	        var angle = fabric.util.getRandomInt(-20, 40);
-	        var width = fabric.util.getRandomInt(30, 50);
-	        var opacity = (function(min, max){ return Math.random() * (max - min) + min; })(0.5, 1);
-	        
-	  		fabric.Image.fromURL('http://williamnharvey.com' + src, function(image) {
-		          image.set({
-		            left: left,
-		            top: top,
-		            angle: 0,
-		            padding: 10,
-		            cornersize: 10,
-	      	  		hasRotatingPoint:true
-		          });
-		          //image.scale(getRandomNum(0.1, 0.25)).setCoords();
-		          canvas.add(image);
-		        });
-	  	}
+	  	
 	  document.getElementById('remove-selected').onclick = function() {		  
 		    var activeObject = canvas.getActiveObject(),
 		        activeGroup = canvas.getActiveGroup();
