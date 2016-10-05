@@ -129,6 +129,7 @@ html(lang='en')
                   .well
                     form#uploadForm(name='upload', enctype='multipart/form-data', action='/upload', method='POST')
                       input#upload(type='file', name='avatar')
+                    img#loadingImg(src='../images/loading.gif', style='display:none;')
                   .well
                     #avatarlist
                       img.img-polaroid(style='cursor:pointer;', src='../images/invisibleman.jpg')
@@ -225,7 +226,6 @@ html(lang='en')
     script(src='../javascripts/bootstrap.min.js')
     script(type='text/javascript').
       document.getElementById("upload").onchange = function() {
-      console.log('upload');
       uploadImage();
       };
       //$(function(){
@@ -241,7 +241,6 @@ html(lang='en')
       processData: false,
       success: function(data) {
       //print response on success
-      console.log(data);
       addUploadedImg(data);
       }
       });
@@ -256,6 +255,7 @@ html(lang='en')
       var req = new XMLHttpRequest();
       req.open('POST', '/upload')
       req.send(data);
+      $('$#loadingImg').style='display:block;';
       $.ajax({
       url: '/upload',
       data: data,
