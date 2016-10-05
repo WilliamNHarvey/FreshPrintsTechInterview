@@ -23,7 +23,7 @@ function addUploadedImg(src) {
             cornersize: 10,
   	  		hasRotatingPoint:true
           });
-          image.scaleToWidth(50);
+          image.scaleToWidth(200);
           
           //image.scale(getRandomNum(0.1, 0.25)).setCoords();
           canvas.add(image);
