@@ -7,6 +7,7 @@ var line2;
 var line3;
 var line4;
 function saveCanvas() {
+	console.log('here');
 	var json = JSON.stringify(canvas);
 	console.log(json);
 }
