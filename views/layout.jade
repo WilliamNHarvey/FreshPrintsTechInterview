@@ -255,7 +255,7 @@ html(lang='en')
       var req = new XMLHttpRequest();
       req.open('POST', '/upload')
       req.send(data);
-      $('$#loadingImg').style='display:block;';
+      $('#loadingImg').style='display:block;';
       $.ajax({
       url: '/upload',
       data: data,

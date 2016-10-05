@@ -27,7 +27,7 @@ function addUploadedImg(src) {
           
           //image.scale(getRandomNum(0.1, 0.25)).setCoords();
           canvas.add(image);
-          $('$#loadingImg').style='display:none;';
+          $('#loadingImg').style='display:none;';
         });
 	}
  	$(document).ready(function() {
