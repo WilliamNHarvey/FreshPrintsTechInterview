@@ -9,7 +9,6 @@ var line4;
 function saveCanvas() {
 	console.log('here');
 	//var json = JSON.stringify(canvas);
-	console.log(json);
 	var string = JSON.parse('{"objects":[{"type":"text","left":84,"top":154,"width":231.23,"height":52,"fill":"#000000","overlayFill":null,"stroke":null,"strokeWidth":1,"strokeDashArray":null,"scaleX":0.5,"scaleY":0.5,"angle":0,"flipX":false,"flipY":false,"opacity":1,"selectable":true,"hasControls":true,"hasBorders":true,"hasRotatingPoint":true,"transparentCorners":true,"perPixelTargetFind":false,"text":"haha memes","fontSize":40,"fontWeight":"","fontFamily":"helvetica","fontStyle":"","lineHeight":1.3,"textDecoration":"","textShadow":"","textAlign":"left","path":null,"strokeStyle":"","backgroundColor":"","useNative":true}],"background":"rgba(0, 0, 0, 0)"}');
 	canvas.loadFromJSON(string, function() {
 
