@@ -128,8 +128,8 @@ html(lang='en')
                 #tab2.tab-pane
                   .well
                     form#uploadForm(name='upload', enctype='multipart/form-data', action='/upload', method='POST')
-                      input#upload(type='file', name='avatar', onchange='this.form.submit()')
-
+                      input#upload(type='file', name='avatar')
+                      button#submit(type='submit', value='submit') Upload Image
                   .well
                     #avatarlist
                       img.img-polaroid(style='cursor:pointer;', src='../images/invisibleman.jpg')
@@ -228,6 +228,7 @@ html(lang='en')
       $(function(){
       $('#uploadForm').submit(function(e){
       //formData sets: multipart/form-data
+      console.log($(this)[0]);
       var formData = new FormData($(this)[0]);
       $.ajax({
       type:'POST',
