@@ -225,12 +225,13 @@ html(lang='en')
     // Placed at the end of the document so the pages load faster
     script(src='../javascripts/bootstrap.min.js')
     script(type='text/javascript').
+      $('#upload').onchange(function(e){
+      $('#uploadForm').submit();
+      });
       $(function(){
       $('#uploadForm').submit(function(e){
       //formData sets: multipart/form-data
-      console.log($(this)[0].files);
       var formData = new FormData($(this)[0]);
-      console.log(formData.file);
       $.ajax({
       type:'POST',
       url:'http://williamnharvey.com/freshupload.php',
