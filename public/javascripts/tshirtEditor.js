@@ -6,6 +6,10 @@ var line1;
 var line2;
 var line3;
 var line4;
+function saveCanvas() {
+	var json = JSON.stringify(canvas);
+	console.log(json);
+}
 function addUploadedImg(src) {
 		var offset = 50;
     var left = fabric.util.getRandomInt(0 + offset, 200 - offset);
@@ -76,7 +80,6 @@ function addUploadedImg(src) {
 		    return target;
 		  };
 		})(canvas.findTarget);
-
  		canvas.on('object:over', function(e) {		
 		  //e.target.setFill('red');
 		  //canvas.renderAll();

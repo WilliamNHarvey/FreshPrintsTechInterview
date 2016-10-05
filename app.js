@@ -23,7 +23,7 @@ var connection = mysql.createConnection({
 })
 
 connection.connect();
-connection.query('DROP TABLE user_saves',
+/*connection.query('DROP TABLE user_saves',
 function(err, result){
 	// Case there is an error during the creation
 	if(err) {
@@ -61,7 +61,22 @@ console.log(err);
 } else {
 console.log("Table saves Created");
 }
-});
+});*/
+app.post('/save', function (req, res) {
+	var ip = req.headers['x-forwarded-for'];
+	console.log(req);
+	/*connection.query('INSERT INTO user_saves VALUES ('+ip+', ',
+	function(err, result){
+		// Case there is an error during the creation
+		if(err) {
+			console.log(err);
+		} else {
+			console.log("Table user_saves dropped");
+		}
+	});*/
+})
+request.headers['x-forwarded-for']
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
