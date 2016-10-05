@@ -7,8 +7,6 @@ var line2;
 var line3;
 var line4;
 function addUploadedImg(src) {
-	src.scaleToWidth(50);
-	src.scaleToHeight(50);
 		var offset = 50;
     var left = fabric.util.getRandomInt(0 + offset, 200 - offset);
     var top = fabric.util.getRandomInt(0 + offset, 400 - offset);
@@ -25,6 +23,8 @@ function addUploadedImg(src) {
             cornersize: 10,
   	  		hasRotatingPoint:true
           });
+          image.scaleToWidth(50);
+          
           //image.scale(getRandomNum(0.1, 0.25)).setCoords();
           canvas.add(image);
         });
