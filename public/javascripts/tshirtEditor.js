@@ -21,7 +21,9 @@ function addUploadedImg(src) {
             angle: 0,
             padding: 10,
             cornersize: 10,
-  	  		hasRotatingPoint:true
+  	  		hasRotatingPoint:true,
+  	  		width: 50,
+  	  		height: 50
           });
           //image.scale(getRandomNum(0.1, 0.25)).setCoords();
           canvas.add(image);
