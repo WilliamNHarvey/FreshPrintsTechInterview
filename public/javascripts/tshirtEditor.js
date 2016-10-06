@@ -19,7 +19,8 @@ function saveCanvas() {
 	$.ajax({
 	      type:'POST',
 	      url:'/save',
-	      data: json,
+	      dataType: 'json',
+	      data: {objectData: someObject},
 	      success: function(data) {
 	    	  //print response on success
 	    	  console.log(data);

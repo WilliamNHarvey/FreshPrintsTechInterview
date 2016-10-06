@@ -14,7 +14,6 @@ var users = require('./routes/users');
 var app = express();
 var upload = multer({ dest: './public/user_img/' })
 app.use(morgan('combined'));
-
 var connection = mysql.createConnection({
 	host 	 : 'us-cdbr-iron-east-04.cleardb.net',
 	user 	 : 'bb1f84da0b6428',
@@ -62,9 +61,11 @@ console.log(err);
 console.log("Table saves Created");
 }
 });*/
+
 app.post('/save', function (req, res) {
+	
+	console.log(req.body.objectData);
 	var ip = req.headers['x-forwarded-for'];
-	console.log(req.body);
 	console.log(ip);
 	/*connection.query('INSERT INTO user_saves VALUES ('+ip+', ',
 	function(err, result){
@@ -76,7 +77,6 @@ app.post('/save', function (req, res) {
 		}
 	});*/
 })
-
 
 
 // view engine setup
