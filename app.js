@@ -96,6 +96,8 @@ app.post('/save', function (req, res, next) {
 	var post = {save: req.body.objectData};
 	var insert;
 	var empty = '{"objects":[],"background":"rgba(0, 0, 0, 0)"}';
+	var fail = false;
+	var save = 0;
 	connection.query('INSERT INTO saves SET ?', post,
 		function(err, result){
 		// Case there is an error during the creation
@@ -105,15 +107,6 @@ app.post('/save', function (req, res, next) {
 			insert = result.insertId;
 		}
 	});
-	connection.query("SELECT * FROM saves",
-			function(err, result){
-			// Case there is an error during the creation
-			if(err) {
-				console.log(err);
-			} else {
-				console.log(result);
-			}
-		});
 	connection.query("SELECT * FROM user_saves WHERE ip='"+ipAdd+"'",
 			function(err, result){
 			// Case there is an error during the creation
@@ -128,6 +121,7 @@ app.post('/save', function (req, res, next) {
 								console.log(err);
 							} else {
 								console.log("save1 set");
+								save = 1;
 							}
 						});
 				}
@@ -139,6 +133,7 @@ app.post('/save', function (req, res, next) {
 								console.log(err);
 							} else {
 								console.log("save2 updated");
+								save = 2;
 							}
 						});
 				}
@@ -150,6 +145,7 @@ app.post('/save', function (req, res, next) {
 								console.log(err);
 							} else {
 								console.log("save3 updated");
+								save = 3;
 							}
 						});
 				}
@@ -161,6 +157,7 @@ app.post('/save', function (req, res, next) {
 								console.log(err);
 							} else {
 								console.log("save4 updated");
+								save = 4;
 							}
 						});
 				}
@@ -172,6 +169,7 @@ app.post('/save', function (req, res, next) {
 								console.log(err);
 							} else {
 								console.log("save5 updated");
+								save = 5;
 							}
 						});
 				}
@@ -183,10 +181,48 @@ app.post('/save', function (req, res, next) {
 								console.log(err);
 							} else {
 								console.log("save6 updated");
+								save = 6;
 							}
 						});
 				}
+				else fail = true;
 				console.log(result);
+			}
+		});
+	
+	res.status(201).end();
+	if(fail) res.send('Save failed');
+	else res.send('Saved to position '+save);
+})
+
+//GET SAVE
+app.post('/getSave', function (req, res, next) {
+	var ipAdd = req.headers['x-forwarded-for'];
+	console.log(ipAdd);
+	//console.log(req.body);
+	var index = req.body.num;
+	var saveNum
+	connection.query("SELECT * FROM user_saves WHERE ?", {ip: ipAdd},
+			function(err, result){
+			// Case there is an error during the creation
+			if(err) {
+				console.log(err);
+			} else {
+				if(index == 1) saveNum = result[0].save1;
+				else if(index == 2) saveNum = result[0].save2;
+				else if(index == 3) saveNum = result[0].save3;
+				else if(index == 4) saveNum = result[0].save4;
+				else if(index == 5) saveNum = result[0].save5;
+				else if(index == 6) saveNum = result[0].save6;
+				else saveNum = null;
+		});
+	connection.query("SELECT * FROM saves WHERE ?", {save_id: saveNum},
+			function(err, result){
+			// Case there is an error during the creation
+			if(err) {
+				console.log(err);
+			} else {
+				res.send(result[0].save);
 			}
 		});
 	/*connection.query('INSERT INTO user_saves VALUES ('+ip+', ',
@@ -217,6 +253,7 @@ app.post('/save', function (req, res, next) {
 		}
 	});*/
 	res.status(201).end();
+	
 })
 
 function makeid()
