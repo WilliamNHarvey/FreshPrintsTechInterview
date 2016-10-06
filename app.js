@@ -194,13 +194,36 @@ app.post('/save', function (req, res, next) {
 	else res.send('Saved to position '+save);
 })
 
-//GET SAVE
-app.post('/getSave', function (req, res, next) {
+//Get saves
+app.post('/loadSave', function (req, res, next) {
+	var ipAdd = req.headers['x-forwarded-for'];
+	console.log(ipAdd);
+	//console.log(req.body);
+	var saves = [];
+	connection.query("SELECT * FROM user_saves WHERE ?", {ip: ipAdd},
+			function(err, result){
+			// Case there is an error during the creation
+			if(err) {
+				console.log(err);
+			} else {
+				if(result[0].save1 != null) saves[saves.length] = 'save1';
+				if(result[0].save2 != null) saves[saves.length] = 'save2';
+				if(result[0].save3 != null) saves[saves.length] = 'save3';
+				if(result[0].save4 != null) saves[saves.length] = 'save4';
+				if(result[0].save5 != null) saves[saves.length] = 'save5';
+				if(result[0].save6 != null) saves[saves.length] = 'save6';
+				res.send(saves);
+			}
+		});
+})
+
+//LOAD SAVE
+app.post('/loadSave', function (req, res, next) {
 	var ipAdd = req.headers['x-forwarded-for'];
 	console.log(ipAdd);
 	//console.log(req.body);
 	var index = req.body.num;
-	var saveNum
+	var saveNum;
 	connection.query("SELECT * FROM user_saves WHERE ?", {ip: ipAdd},
 			function(err, result){
 			// Case there is an error during the creation

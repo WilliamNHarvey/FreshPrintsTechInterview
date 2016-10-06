@@ -152,6 +152,14 @@ html(lang='en')
                   .well(style='text-align:center;')
                     .input-append
                       button#saveBtn.btn.buttondiv.btn-primary(title='Save') Save
+                  .well
+                    .input-append
+                      button#save1.btn.buttondiv.btn-primary(title='Save 1', style='display: none') Save 1
+                      button#save2.btn.buttondiv.btn-primary(title='Save 2', style='display: none') Save 2
+                      button#save3.btn.buttondiv.btn-primary(title='Save 3', style='display: none') Save 3
+                      button#save4.btn.buttondiv.btn-primary(title='Save 4', style='display: none') Save 4
+                      button#save5.btn.buttondiv.btn-primary(title='Save 5', style='display: none') Save 5
+                      button#save6.btn.buttondiv.btn-primary(title='Save 6', style='display: none') Save 6
           .span8
             div(align='center', style='min-height: 32px;')
               .clearfix
@@ -233,6 +241,20 @@ html(lang='en')
 	// scripts
     script(src='../javascripts/bootstrap.min.js')
     script(type='text/javascript').
+      $.ajax({
+      type:'POST',
+      url:'/getSaves',                  
+      contentType: false,
+      processData: false,
+      success: function(data) {
+       if(data.indexOf('save1') > -1) $('#save1').show();
+       if(data.indexOf('save2') > -1) $('#save2').show();
+       if(data.indexOf('save3') > -1) $('#save3').show();
+       if(data.indexOf('save4') > -1) $('#save4').show();
+       if(data.indexOf('save5') > -1) $('#save5').show();
+       if(data.indexOf('save6') > -1) $('#save6').show();
+      }
+      });
       document.getElementById("saveBtn").onclick = function() {
       /*$.ajax({
       type:'POST',
