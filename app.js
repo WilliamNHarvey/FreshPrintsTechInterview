@@ -22,7 +22,7 @@ var connection = mysql.createConnection({
 })
 
 connection.connect();
-connection.query('DROP TABLE user_saves',
+/*connection.query('DROP TABLE user_saves',
 function(err, result){
 	// Case there is an error during the creation
 	if(err) {
@@ -90,7 +90,7 @@ app.use('/', routes);
 app.use('/users', users);
 
 app.post('/save', function (req, res) {
-	var ip = req.headers['x-forwarded-for'];
+	var ipAdd = req.headers['x-forwarded-for'];
 	console.log(ip);
 	//console.log(req.body);
 	var post = {save: req.body.objectData};
@@ -125,7 +125,72 @@ app.post('/save', function (req, res) {
 			if(err) {
 				console.log(err);
 			} else {
-				if(result.length == 0) console.log('null');
+				if(result.length == 0) {
+					connection.query('INSERT INTO user_saves SET ?', {ip: ipAdd, save1: insert, save2: null, save3: null, save4: null, save5: null, save6: null},
+							function(err, result){
+							// Case there is an error during the creation
+							if(err) {
+								console.log(err);
+							} else {
+								console.log("save1 set");
+							}
+						});
+				}
+				else if(save2 == null) {
+					connection.query('UPDATE user_saves SET ? WHERE ip='+ip, {save2: insert},
+							function(err, result){
+							// Case there is an error during the creation
+							if(err) {
+								console.log(err);
+							} else {
+								console.log("save2 updated");
+							}
+						});
+				}
+				else if(save3 == null) {
+					connection.query('UPDATE user_saves SET ? WHERE ip='+ip, {save3: insert},
+							function(err, result){
+							// Case there is an error during the creation
+							if(err) {
+								console.log(err);
+							} else {
+								console.log("save3 updated");
+							}
+						});
+				}
+				else if(save4 == null) {
+					connection.query('UPDATE user_saves SET ? WHERE ip='+ip, {save4: insert},
+							function(err, result){
+							// Case there is an error during the creation
+							if(err) {
+								console.log(err);
+							} else {
+								console.log("save4 updated");
+							}
+						});
+				}
+				else if(save5 == null) {
+					connection.query('UPDATE user_saves SET ? WHERE ip='+ip, {save5: insert},
+							function(err, result){
+							// Case there is an error during the creation
+							if(err) {
+								console.log(err);
+							} else {
+								console.log("save5 updated");
+							}
+						});
+				}
+				else if(save6 == null) {
+					connection.query('UPDATE user_saves SET ? WHERE ip='+ip, {save6: insert},
+							function(err, result){
+							// Case there is an error during the creation
+							if(err) {
+								console.log(err);
+							} else {
+								console.log("save6 updated");
+							}
+						});
+				}
 				console.log(result);
 			}
 		});
