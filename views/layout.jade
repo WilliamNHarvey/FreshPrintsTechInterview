@@ -255,24 +255,11 @@ html(lang='en')
       }
       });
       
-      document.getElementById("save1".onclick = function() {
-      $.ajax({
-      type:'POST',
-      url:'/loadSave',
-      data: {save: 'save1'},                  
-      contentType: false,
-      processData: false,
-      success: function(data) {
-      loadSave(data);
-      }
-      });
-      }
-      
       document.getElementById("save1").onclick = function() {
       $.ajax({
       type:'POST',
       url:'/loadSave',
-      data: {save: 1},                  
+      data: {save: 'save1'},                  
       contentType: false,
       processData: false,
       success: function(data) {
@@ -299,6 +286,19 @@ html(lang='en')
       type:'POST',
       url:'/loadSave',
       data: {save: 3},                  
+      contentType: false,
+      processData: false,
+      success: function(data) {
+      loadSave(data);
+      }
+      });
+      }
+      
+      document.getElementById("save4").onclick = function() {
+      $.ajax({
+      type:'POST',
+      url:'/loadSave',
+      data: {save: 4},                  
       contentType: false,
       processData: false,
       success: function(data) {
