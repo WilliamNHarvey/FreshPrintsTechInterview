@@ -119,7 +119,7 @@ app.post('/save', function (req, res) {
 				console.log(result);
 			}
 		});
-	connection.query("SELECT * FROM user_saves WHERE ip='"+ip+"'",
+	/*connection.query("SELECT * FROM user_saves WHERE ip='"+ip+"'",
 			function(err, result){
 			// Case there is an error during the creation
 			if(err) {
@@ -191,10 +191,10 @@ app.post('/save', function (req, res) {
 								console.log("save6 updated");
 							}
 						});
-				}*/
+				}
 				console.log(result);
 			}
-		});
+		});*/
 	/*connection.query('INSERT INTO user_saves VALUES ('+ip+', ',
 		function(err, result){
 		// Case there is an error during the creation
