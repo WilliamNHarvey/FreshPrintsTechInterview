@@ -63,7 +63,7 @@ console.log("Table saves Created");
 });*/
 
 connection.query('CREATE TABLE saves (save_id int,' +
-        'save VARCHAR(21844), PRIMARY KEY(save_id))',
+        'save VARCHAR(65535), PRIMARY KEY(save_id))',
 function(err, result){
 // Case there is an error during the creation
 if(err) {
