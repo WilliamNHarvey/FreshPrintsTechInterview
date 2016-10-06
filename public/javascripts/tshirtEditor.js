@@ -20,7 +20,7 @@ function saveCanvas() {
 	      type:'POST',
 	      url:'/save',
 	      dataType: 'json',
-	      data: {objectData: someObject},
+	      data: {objectData: json},
 	      success: function(data) {
 	    	  //print response on success
 	    	  console.log(data);
