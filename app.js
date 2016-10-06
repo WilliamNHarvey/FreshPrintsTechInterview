@@ -94,7 +94,6 @@ app.post('/save', function (req, res, next) {
 	console.log(ipAdd);
 	//console.log(req.body);
 	var post = {save: req.body.objectData};
-	var firstPost = {ip: ipAdd, save1: insert, save2: null, save3: null, save4: null, save5: null, save6: null};
 	var insert;
 	var empty = '{"objects":[],"background":"rgba(0, 0, 0, 0)"}';
 	connection.query('INSERT INTO saves SET ?', post,
@@ -129,7 +128,7 @@ app.post('/save', function (req, res, next) {
 			} else {
 				console.log(result);
 				if(result.length == 0) {
-					connection.query('INSERT INTO user_saves SET ?', firstPost,
+					connection.query('INSERT INTO user_saves SET ?', {ip: ipAdd, save1: insert, save2: null, save3: null, save4: null, save5: null, save6: null},
 							function(err, result){
 							// Case there is an error during the creation
 							if(err) {
@@ -140,7 +139,7 @@ app.post('/save', function (req, res, next) {
 						});
 				}
 				else if(result.save2 == null) {
-					connection.query('UPDATE user_saves SET ? WHERE ip='+ipAdd, {save2: insert},
+					connection.query('UPDATE user_saves SET ? WHERE ?', [{save2: insert}, { ip: ipAdd }],
 							function(err, result){
 							// Case there is an error during the creation
 							if(err) {
@@ -151,7 +150,7 @@ app.post('/save', function (req, res, next) {
 						});
 				}
 				else if(result.save3 == null) {
-					connection.query('UPDATE user_saves SET ? WHERE ip='+ipAdd, {save3: insert},
+					connection.query('UPDATE user_saves SET ? WHERE ?', [{save3: insert}, { ip: ipAdd }],
 							function(err, result){
 							// Case there is an error during the creation
 							if(err) {
@@ -162,7 +161,7 @@ app.post('/save', function (req, res, next) {
 						});
 				}
 				else if(result.save4 == null) {
-					connection.query('UPDATE user_saves SET ? WHERE ip='+ipAdd, {save4: insert},
+					connection.query('UPDATE user_saves SET ? WHERE ?', [{save4: insert}, { ip: ipAdd }],
 							function(err, result){
 							// Case there is an error during the creation
 							if(err) {
@@ -173,7 +172,7 @@ app.post('/save', function (req, res, next) {
 						});
 				}
 				else if(result.save5 == null) {
-					connection.query('UPDATE user_saves SET ? WHERE ip='+ipAdd, {save5: insert},
+					connection.query('UPDATE user_saves SET ? WHERE ?', [{save5: insert}, { ip: ipAdd }],
 							function(err, result){
 							// Case there is an error during the creation
 							if(err) {
@@ -184,7 +183,7 @@ app.post('/save', function (req, res, next) {
 						});
 				}
 				else if(result.save6 == null) {
-					connection.query('UPDATE user_saves SET ? WHERE ip='+ipAdd, {save6: insert},
+					connection.query('UPDATE user_saves SET ? WHERE ?', [{save6: insert}, { ip: ipAdd }],
 							function(err, result){
 							// Case there is an error during the creation
 							if(err) {
