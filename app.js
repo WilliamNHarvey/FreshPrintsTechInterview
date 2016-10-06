@@ -101,10 +101,21 @@ app.post('/save', function (req, res) {
 		if(err) {
 			console.log(err);
 		} else {
+			console.log(result);
 			console.log(result.insertId);
 			insert = result.insertId;
 		}
 	});
+	connection.query("SELECT * FROM saves",
+			function(err, result){
+			// Case there is an error during the creation
+			if(err) {
+				console.log(err);
+			} else {
+				if(result.length == 0) console.log('null');
+				console.log(result);
+			}
+		});
 	connection.query("SELECT * FROM user_saves WHERE ip='"+ip+"'",
 			function(err, result){
 			// Case there is an error during the creation
