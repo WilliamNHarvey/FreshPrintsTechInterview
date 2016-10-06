@@ -118,6 +118,7 @@ app.post('/save', function (req, res) {
 				console.log(result);
 			}
 		});
+	var queryResult;
 	connection.query("SELECT * FROM user_saves WHERE ip='"+ip+"'",
 			function(err, result){
 			// Case there is an error during the creation
@@ -125,75 +126,77 @@ app.post('/save', function (req, res) {
 				console.log(err);
 			} else {
 				console.log(result);
-				/*if(result.length == 0) {
-					connection.query('INSERT INTO user_saves SET ?', {ip: ipAdd, save1: insert, save2: null, save3: null, save4: null, save5: null, save6: null},
-							function(err, result){
-							// Case there is an error during the creation
-							if(err) {
-								console.log(err);
-							} else {
-								console.log("save1 set");
-							}
-						});
-				}
-				else if(save2 == null) {
-					connection.query('UPDATE user_saves SET ? WHERE ip='+ip, {save2: insert},
-							function(err, result){
-							// Case there is an error during the creation
-							if(err) {
-								console.log(err);
-							} else {
-								console.log("save2 updated");
-							}
-						});
-				}
-				else if(save3 == null) {
-					connection.query('UPDATE user_saves SET ? WHERE ip='+ip, {save3: insert},
-							function(err, result){
-							// Case there is an error during the creation
-							if(err) {
-								console.log(err);
-							} else {
-								console.log("save3 updated");
-							}
-						});
-				}
-				else if(save4 == null) {
-					connection.query('UPDATE user_saves SET ? WHERE ip='+ip, {save4: insert},
-							function(err, result){
-							// Case there is an error during the creation
-							if(err) {
-								console.log(err);
-							} else {
-								console.log("save4 updated");
-							}
-						});
-				}
-				else if(save5 == null) {
-					connection.query('UPDATE user_saves SET ? WHERE ip='+ip, {save5: insert},
-							function(err, result){
-							// Case there is an error during the creation
-							if(err) {
-								console.log(err);
-							} else {
-								console.log("save5 updated");
-							}
-						});
-				}
-				else if(save6 == null) {
-					connection.query('UPDATE user_saves SET ? WHERE ip='+ip, {save6: insert},
-							function(err, result){
-							// Case there is an error during the creation
-							if(err) {
-								console.log(err);
-							} else {
-								console.log("save6 updated");
-							}
-						});
-				}*/
+				queryResult = result;
+				
 				console.log(result);
 			}
 		});
+	/*if(result.length == 0) {
+	connection.query('INSERT INTO user_saves SET ?', {ip: ipAdd, save1: insert, save2: null, save3: null, save4: null, save5: null, save6: null},
+			function(err, result){
+			// Case there is an error during the creation
+			if(err) {
+				console.log(err);
+			} else {
+				console.log("save1 set");
+			}
+		});
+}
+else if(save2 == null) {
+	connection.query('UPDATE user_saves SET ? WHERE ip='+ip, {save2: insert},
+			function(err, result){
+			// Case there is an error during the creation
+			if(err) {
+				console.log(err);
+			} else {
+				console.log("save2 updated");
+			}
+		});
+}
+else if(save3 == null) {
+	connection.query('UPDATE user_saves SET ? WHERE ip='+ip, {save3: insert},
+			function(err, result){
+			// Case there is an error during the creation
+			if(err) {
+				console.log(err);
+			} else {
+				console.log("save3 updated");
+			}
+		});
+}
+else if(save4 == null) {
+	connection.query('UPDATE user_saves SET ? WHERE ip='+ip, {save4: insert},
+			function(err, result){
+			// Case there is an error during the creation
+			if(err) {
+				console.log(err);
+			} else {
+				console.log("save4 updated");
+			}
+		});
+}
+else if(save5 == null) {
+	connection.query('UPDATE user_saves SET ? WHERE ip='+ip, {save5: insert},
+			function(err, result){
+			// Case there is an error during the creation
+			if(err) {
+				console.log(err);
+			} else {
+				console.log("save5 updated");
+			}
+		});
+}
+else if(save6 == null) {
+	connection.query('UPDATE user_saves SET ? WHERE ip='+ip, {save6: insert},
+			function(err, result){
+			// Case there is an error during the creation
+			if(err) {
+				console.log(err);
+			} else {
+				console.log("save6 updated");
+			}
+		});
+}*/
 	/*connection.query('INSERT INTO user_saves VALUES ('+ip+', ',
 		function(err, result){
 		// Case there is an error during the creation
