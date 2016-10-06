@@ -195,7 +195,7 @@ app.post('/save', function (req, res, next) {
 })
 
 //Get saves
-app.post('/loadSave', function (req, res, next) {
+app.post('/getSaves', function (req, res, next) {
 	var ipAdd = req.headers['x-forwarded-for'];
 	console.log(ipAdd);
 	//console.log(req.body);
