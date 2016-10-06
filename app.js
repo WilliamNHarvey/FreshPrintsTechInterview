@@ -95,7 +95,7 @@ app.post('/save', function (req, res) {
 	//console.log(req.body);
 	var post = {save: req.body.objectData};
 	var insert;
-	connection.query('INSERT INTO saves SET ?', post,
+	/*connection.query('INSERT INTO saves SET ?', post,
 		function(err, result){
 		// Case there is an error during the creation
 		if(err) {
@@ -119,7 +119,7 @@ app.post('/save', function (req, res) {
 				console.log(result);
 			}
 		});
-	/*connection.query("SELECT * FROM user_saves WHERE ip='"+ip+"'",
+	connection.query("SELECT * FROM user_saves WHERE ip='"+ip+"'",
 			function(err, result){
 			// Case there is an error during the creation
 			if(err) {
