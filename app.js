@@ -90,11 +90,12 @@ app.use('/', routes);
 app.use('/users', users);
 
 app.post('/save', function (req, res) {
-	var ipAdd = req.headers['x-forwarded-for'];
-	console.log(ip);
+	console.log(req);
+	//var ipAdd = req.headers['x-forwarded-for'];
+	//console.log(ip);
 	//console.log(req.body);
-	var post = {save: req.body.objectData};
-	var insert;
+	//var post = {save: req.body.objectData};
+	//var insert;
 	/*connection.query('INSERT INTO saves SET ?', post,
 		function(err, result){
 		// Case there is an error during the creation
