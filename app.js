@@ -223,6 +223,7 @@ app.post('/loadSave', function (req, res, next) {
 	console.log(ipAdd);
 	//console.log(req.body);
 	var index = req.body.save;
+	console.log(index);
 	var saveNum;
 	connection.query("SELECT * FROM user_saves WHERE ?", {ip: ipAdd},
 			function(err, result){
@@ -230,12 +231,12 @@ app.post('/loadSave', function (req, res, next) {
 			if(err) {
 				console.log(err);
 			} else {
-				if(index == 1) saveNum = result[0].save1;
-				else if(index == 2) saveNum = result[0].save2;
-				else if(index == 3) saveNum = result[0].save3;
-				else if(index == 4) saveNum = result[0].save4;
-				else if(index == 5) saveNum = result[0].save5;
-				else if(index == 6) saveNum = result[0].save6;
+				if(index == '1') saveNum = result[0].save1;
+				else if(index == '2') saveNum = result[0].save2;
+				else if(index == '3') saveNum = result[0].save3;
+				else if(index == '4') saveNum = result[0].save4;
+				else if(index == '5') saveNum = result[0].save5;
+				else if(index == '6') saveNum = result[0].save6;
 				else saveNum = null;
 			}
 		});
