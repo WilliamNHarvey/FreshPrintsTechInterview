@@ -217,7 +217,7 @@ app.post('/save', function (req, res, next) {
 			console.log("Table user_saves dropped");
 		}
 	});*/
-	next();
+	res.status(201).end();
 })
 
 function makeid()
