@@ -120,7 +120,7 @@ app.post('/save', function (req, res, next) {
 			if(err) {
 				console.log(err);
 			} else {
-				console.log(result.save2);
+				console.log(result[0].save2);
 				if(result.length == 0) {
 					connection.query('INSERT INTO user_saves SET ?', {ip: ipAdd, save1: insert, save2: null, save3: null, save4: null, save5: null, save6: null},
 							function(err, result){
@@ -132,7 +132,7 @@ app.post('/save', function (req, res, next) {
 							}
 						});
 				}
-				else if(result.save2 == null) {
+				else if(result[0].save2 == null) {
 					connection.query('UPDATE user_saves SET ? WHERE ?', [{save2: insert}, { ip: ipAdd }],
 							function(err, result){
 							// Case there is an error during the creation
@@ -143,7 +143,7 @@ app.post('/save', function (req, res, next) {
 							}
 						});
 				}
-				else if(result.save3 == null) {
+				else if(result[0].save3 == null) {
 					connection.query('UPDATE user_saves SET ? WHERE ?', [{save3: insert}, { ip: ipAdd }],
 							function(err, result){
 							// Case there is an error during the creation
@@ -154,7 +154,7 @@ app.post('/save', function (req, res, next) {
 							}
 						});
 				}
-				else if(result.save4 == null) {
+				else if(result[0].save4 == null) {
 					connection.query('UPDATE user_saves SET ? WHERE ?', [{save4: insert}, { ip: ipAdd }],
 							function(err, result){
 							// Case there is an error during the creation
@@ -165,7 +165,7 @@ app.post('/save', function (req, res, next) {
 							}
 						});
 				}
-				else if(result.save5 == null) {
+				else if(result[0].save5 == null) {
 					connection.query('UPDATE user_saves SET ? WHERE ?', [{save5: insert}, { ip: ipAdd }],
 							function(err, result){
 							// Case there is an error during the creation
@@ -176,7 +176,7 @@ app.post('/save', function (req, res, next) {
 							}
 						});
 				}
-				else if(result.save6 == null) {
+				else if(result[0].save6 == null) {
 					connection.query('UPDATE user_saves SET ? WHERE ?', [{save6: insert}, { ip: ipAdd }],
 							function(err, result){
 							// Case there is an error during the creation
