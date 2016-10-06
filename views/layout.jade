@@ -255,13 +255,12 @@ html(lang='en')
       }
       });
       
-      document.getElementById("save1").onclick = function() {
+     document.getElementById("save1").onclick = function() {
       $.ajax({
       type:'POST',
       url:'/loadSave',
-      data: {save: 'save1'},                  
-      contentType: false,
-      processData: false,
+      dataType: 'json',
+      data: {save: '1'},
       success: function(data) {
       loadSave(data);
       }
@@ -272,9 +271,8 @@ html(lang='en')
       $.ajax({
       type:'POST',
       url:'/loadSave',
-      data: {save: 2},                  
-      contentType: false,
-      processData: false,
+      dataType: 'json',
+      data: {save: '2'},
       success: function(data) {
       loadSave(data);
       }
@@ -285,9 +283,8 @@ html(lang='en')
       $.ajax({
       type:'POST',
       url:'/loadSave',
-      data: {save: 3},                  
-      contentType: false,
-      processData: false,
+      dataType: 'json',
+      data: {save: '3'},
       success: function(data) {
       loadSave(data);
       }
@@ -298,9 +295,8 @@ html(lang='en')
       $.ajax({
       type:'POST',
       url:'/loadSave',
-      data: {save: 4},                  
-      contentType: false,
-      processData: false,
+      dataType: 'json',
+      data: {save: '4'},
       success: function(data) {
       loadSave(data);
       }
@@ -311,9 +307,8 @@ html(lang='en')
       $.ajax({
       type:'POST',
       url:'/loadSave',
-      data: {save: 5},                  
-      contentType: false,
-      processData: false,
+      dataType: 'json',
+      data: {save: '5'},
       success: function(data) {
       loadSave(data);
       }
@@ -324,9 +319,8 @@ html(lang='en')
       $.ajax({
       type:'POST',
       url:'/loadSave',
-      data: {save: 6},                  
-      contentType: false,
-      processData: false,
+      dataType: 'json',
+      data: {save: '6'},
       success: function(data) {
       loadSave(data);
       }
