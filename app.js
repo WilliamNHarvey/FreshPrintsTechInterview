@@ -22,7 +22,7 @@ var connection = mysql.createConnection({
 })
 
 connection.connect();
-connection.query('DROP TABLE user_saves',
+/*connection.query('DROP TABLE user_saves',
 function(err, result){
 	// Case there is an error during the creation
 	if(err) {
@@ -102,11 +102,7 @@ app.post('/save', function (req, res, next) {
 		if(err) {
 			console.log(err);
 		} else {
-			console.log('insert start');
-			console.log(result);
-			console.log(result.insertId);
 			insert = result.insertId;
-			console.log('insert end');
 		}
 	});
 	connection.query("SELECT * FROM saves",
@@ -115,9 +111,7 @@ app.post('/save', function (req, res, next) {
 			if(err) {
 				console.log(err);
 			} else {
-				//if(result.length == 0) console.log('null');
 				console.log('select saves start');
-				console.log(result);
 			}
 		});
 	connection.query("SELECT * FROM user_saves WHERE ip='"+ipAdd+"'",
@@ -126,7 +120,7 @@ app.post('/save', function (req, res, next) {
 			if(err) {
 				console.log(err);
 			} else {
-				console.log(result);
+				console.log(result.save3);
 				if(result.length == 0) {
 					connection.query('INSERT INTO user_saves SET ?', {ip: ipAdd, save1: insert, save2: null, save3: null, save4: null, save5: null, save6: null},
 							function(err, result){
