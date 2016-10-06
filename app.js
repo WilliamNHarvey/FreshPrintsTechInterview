@@ -215,6 +215,7 @@ app.post('/getSave', function (req, res, next) {
 				else if(index == 5) saveNum = result[0].save5;
 				else if(index == 6) saveNum = result[0].save6;
 				else saveNum = null;
+			}
 		});
 	connection.query("SELECT * FROM saves WHERE ?", {save_id: saveNum},
 			function(err, result){
