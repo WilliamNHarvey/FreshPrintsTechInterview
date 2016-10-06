@@ -119,7 +119,7 @@ app.post('/save', function (req, res) {
 				console.log(result);
 			}
 		});
-	connection.query("SELECT * FROM user_saves WHERE ip='"+ip+"'",
+	connection.query("SELECT * FROM user_saves WHERE ip='"+ipAdd+"'",
 			function(err, result){
 			// Case there is an error during the creation
 			if(err) {
