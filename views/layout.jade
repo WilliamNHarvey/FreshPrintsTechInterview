@@ -200,6 +200,12 @@ html(lang='en')
                   a.btn(href='#', rel='tooltip', data-placement='top', data-original-title='Font Border Color')
                     input#text-strokecolor.color-picker(type='hidden', size='7', value='#000000')
                   // - Background <input type="hidden" id="text-bgcolor" class="color-picker" size="7" value="#ffffff"> -
+                #undoredo.pull-right(align='', style='display:inline-block')
+                  .btn-group
+                    button#undo.btn(title='Undo')
+                      i.fa.fa-undo(style='height:19px;')
+                    button#repeat.btn(title='Repeat')
+                      i.fa.fa-repeat(style='height:19px;')
                 #imageeditor.pull-right(align='', style='display:none')
                   .btn-group
                     button#bring-to-front.btn(title='Bring to Front')

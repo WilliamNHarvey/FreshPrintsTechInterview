@@ -174,6 +174,12 @@ function addUploadedImg(src) {
 		      });
 		    }
 	  };
+	  document.getElementById('undo').onclick = function() {
+		  
+	  }
+	  document.getElementById('redo').onclick = function() {
+		  
+	  }
 	  document.getElementById('bring-to-front').onclick = function() {		  
 		    var activeObject = canvas.getActiveObject(),
 		        activeGroup = canvas.getActiveGroup();
