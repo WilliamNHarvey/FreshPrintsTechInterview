@@ -22,7 +22,7 @@ var connection = mysql.createConnection({
 })
 
 connection.connect();
-/*connection.query('DROP TABLE user_saves',
+connection.query('DROP TABLE user_saves',
 function(err, result){
 	// Case there is an error during the creation
 	if(err) {
@@ -40,7 +40,7 @@ connection.query('DROP TABLE saves',
 			console.log("Table saves dropped");
 			}
 			});
-connection.query('CREATE TABLE user_saves (user_id int, ip VARCHAR(100),' +
+connection.query('CREATE TABLE user_saves (user_id int auto_increment, ip VARCHAR(100),' +
         'save1 int, save2 int, save3 int, save4 int, save5 int, save6 int, PRIMARY KEY(user_id))',
 function(err, result){
 // Case there is an error during the creation
@@ -60,9 +60,9 @@ console.log(err);
 } else {
 console.log("Table saves Created");
 }
-});
+});*/
 
-connection.query('CREATE TABLE saves (save_id int,' +
+connection.query('CREATE TABLE saves (save_id int auto_increment,' +
         'save VARCHAR(65535), PRIMARY KEY(save_id))',
 function(err, result){
 // Case there is an error during the creation
@@ -71,7 +71,7 @@ console.log(err);
 } else {
 console.log("Table saves Created");
 }
-});*/
+});
 
 
 // view engine setup
