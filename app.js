@@ -62,21 +62,7 @@ console.log("Table saves Created");
 }
 });*/
 
-app.post('/save', function (req, res) {
-	var ip = req.headers['x-forwarded-for'];
-	console.log(ip);
-	console.log(req.body);
-	
-	/*connection.query('INSERT INTO user_saves VALUES ('+ip+', ',
-	function(err, result){
-		// Case there is an error during the creation
-		if(err) {
-			console.log(err);
-		} else {
-			console.log("Table user_saves dropped");
-		}
-	});*/
-})
+
 
 
 // view engine setup
@@ -93,6 +79,22 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
+
+app.post('/save', function (req, res) {
+	var ip = req.headers['x-forwarded-for'];
+	console.log(ip);
+	console.log(req.body);
+	
+	/*connection.query('INSERT INTO user_saves VALUES ('+ip+', ',
+	function(err, result){
+		// Case there is an error during the creation
+		if(err) {
+			console.log(err);
+		} else {
+			console.log("Table user_saves dropped");
+		}
+	});*/
+})
 
 function makeid()
 {
