@@ -93,6 +93,24 @@ app.post('/save', function (req, res) {
 	var ip = req.headers['x-forwarded-for'];
 	console.log(ip);
 	console.log(req.body);
+	connection.query('INSERT INTO saves VALUES ('+req.body.objectData+',
+		function(err, result){
+		// Case there is an error during the creation
+		if(err) {
+			console.log(err);
+		} else {
+			console.log("Table user_saves dropped");
+		}
+	});
+	connection.query('INSERT INTO user_saves VALUES ('+ip+', sa',
+		function(err, result){
+		// Case there is an error during the creation
+		if(err) {
+			console.log(err);
+		} else {
+			console.log("Table user_saves dropped");
+		}
+	});
 	connection.query("SELECT * FROM user_saves WHERE ip='"+ip+"'",
 	function(err, result){
 		// Case there is an error during the creation
