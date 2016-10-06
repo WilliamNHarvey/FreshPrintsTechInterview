@@ -22,7 +22,7 @@ var connection = mysql.createConnection({
 })
 
 connection.connect();
-connection.query('DROP TABLE user_saves',
+/*connection.query('DROP TABLE user_saves',
 function(err, result){
 	// Case there is an error during the creation
 	if(err) {
@@ -60,7 +60,7 @@ console.log(err);
 } else {
 console.log("Table saves Created");
 }
-});*/
+});
 
 connection.query('CREATE TABLE saves (save_id int,' +
         'save VARCHAR(65535), PRIMARY KEY(save_id))',
@@ -71,7 +71,7 @@ console.log(err);
 } else {
 console.log("Table saves Created");
 }
-});
+});*/
 
 
 // view engine setup
@@ -112,7 +112,16 @@ app.post('/save', function (req, res) {
 			console.log("Table user_saves dropped");
 		}
 	});*/
-	connection.query("SELECT * FROM user_saves WHERE ip='"+ip+"'",
+	connection.query("SELECT * FROM saves",
+			function(err, result){
+				// Case there is an error during the creation
+				if(err) {
+					console.log(err);
+				} else {
+					console.log(result);
+				}
+			});
+	/*connection.query("SELECT * FROM user_saves WHERE ip='"+ip+"'",
 	function(err, result){
 		// Case there is an error during the creation
 		if(err) {
@@ -121,7 +130,7 @@ app.post('/save', function (req, res) {
 			console.log(result);
 		}
 	});
-	/*connection.query('INSERT INTO user_saves VALUES ('+ip+', ',
+	connection.query('INSERT INTO user_saves VALUES ('+ip+', ',
 	function(err, result){
 		// Case there is an error during the creation
 		if(err) {
