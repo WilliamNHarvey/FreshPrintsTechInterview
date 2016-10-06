@@ -22,7 +22,7 @@ var connection = mysql.createConnection({
 })
 
 connection.connect();
-connection.query('DROP TABLE user_saves',
+/*connection.query('DROP TABLE user_saves',
 function(err, result){
 	// Case there is an error during the creation
 	if(err) {
@@ -60,7 +60,7 @@ console.log(err);
 } else {
 console.log("Table saves Created");
 }
-});*/
+});
 
 connection.query('CREATE TABLE saves (save_id int,' +
         'save text, PRIMARY KEY(save_id))',
@@ -71,7 +71,7 @@ console.log(err);
 } else {
 console.log("Table saves Created");
 }
-});
+});*/
 
 
 // view engine setup
@@ -93,9 +93,8 @@ app.post('/save', function (req, res) {
 	var ip = req.headers['x-forwarded-for'];
 	console.log(ip);
 	//console.log(req.body);
-	console.log('INSERT INTO saves VALUES (\''+req.body.objectData+'\')');
-	
-	connection.query('INSERT INTO saves VALUES (\''+req.body.objectData+'\')',
+	var post = {text: req.body.objectData}
+	connection.query('INSERT INTO saves SET ?', post,
 		function(err, result){
 		// Case there is an error during the creation
 		if(err) {
