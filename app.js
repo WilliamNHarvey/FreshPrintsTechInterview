@@ -22,7 +22,7 @@ var connection = mysql.createConnection({
 })
 
 connection.connect();
-connection.query('DROP TABLE user_saves',
+/*connection.query('DROP TABLE user_saves',
 function(err, result){
 	// Case there is an error during the creation
 	if(err) {
@@ -50,7 +50,16 @@ console.log(err);
 console.log("Table user_saves Created");
 }
 });
-
+connection.query('CREATE TABLE saves (save_id int auto_increment,' +
+        'save VARCHAR(65535), PRIMARY KEY(save_id))',
+function(err, result){
+// Case there is an error during the creation
+if(err) {
+console.log(err);
+} else {
+console.log("Table saves Created");
+}
+});
 /*connection.query('CREATE TABLE saves (save_id int, save_group int,' +
         'img_location VARCHAR(100), text VARCHAR(100), left_shift int, top_shift int, angle_shift int, width int, height int, fontFamily VARCHAR(100), fill VARCHAR(100), PRIMARY KEY(save_id))',
 function(err, result){
@@ -62,16 +71,7 @@ console.log("Table saves Created");
 }
 });*/
 
-connection.query('CREATE TABLE saves (save_id int auto_increment,' +
-        'save VARCHAR(65535), PRIMARY KEY(save_id))',
-function(err, result){
-// Case there is an error during the creation
-if(err) {
-console.log(err);
-} else {
-console.log("Table saves Created");
-}
-});
+
 
 
 // view engine setup
@@ -93,16 +93,28 @@ app.post('/save', function (req, res) {
 	var ip = req.headers['x-forwarded-for'];
 	console.log(ip);
 	//console.log(req.body);
-	var post = {save: req.body.objectData}
+	var post = {save: req.body.objectData};
+	var insert;
 	connection.query('INSERT INTO saves SET ?', post,
 		function(err, result){
 		// Case there is an error during the creation
 		if(err) {
 			console.log(err);
 		} else {
-			console.log(result);
+			console.log(result.insertId);
+			insert = result.insertId;
 		}
 	});
+	connection.query("SELECT * FROM user_saves WHERE ip='"+ip+"'",
+			function(err, result){
+			// Case there is an error during the creation
+			if(err) {
+				console.log(err);
+			} else {
+				if(result == null) console.log('null');
+				console.log(result);
+			}
+		});
 	/*connection.query('INSERT INTO user_saves VALUES ('+ip+', ',
 		function(err, result){
 		// Case there is an error during the creation
@@ -112,15 +124,6 @@ app.post('/save', function (req, res) {
 			console.log("Table user_saves dropped");
 		}
 	});*/
-	connection.query("SELECT * FROM saves",
-			function(err, result){
-				// Case there is an error during the creation
-				if(err) {
-					console.log(err);
-				} else {
-					console.log(result);
-				}
-			});
 	/*connection.query("SELECT * FROM user_saves WHERE ip='"+ip+"'",
 	function(err, result){
 		// Case there is an error during the creation
