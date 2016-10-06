@@ -94,7 +94,7 @@ app.post('/save', function (req, res, next) {
 	console.log(ipAdd);
 	//console.log(req.body);
 	var post = {save: req.body.objectData};
-	var firstPost = {ip: ipAdd, save1: insert, save2: empty, save3: empty, save4: empty, save5: empty, save6: empty};
+	var firstPost = {ip: ipAdd, save1: insert, save2: null, save3: null, save4: null, save5: null, save6: null};
 	var insert;
 	var empty = '{"objects":[],"background":"rgba(0, 0, 0, 0)"}';
 	connection.query('INSERT INTO saves SET ?', post,
@@ -139,8 +139,8 @@ app.post('/save', function (req, res, next) {
 							}
 						});
 				}
-				else if(save2 == null) {
-					connection.query('UPDATE user_saves SET save2='+insert+' WHERE ip='+ipAdd,
+				else if(result.save2 == null) {
+					connection.query('UPDATE user_saves SET ? WHERE ip='+ipAdd, {save2: insert},
 							function(err, result){
 							// Case there is an error during the creation
 							if(err) {
@@ -150,7 +150,7 @@ app.post('/save', function (req, res, next) {
 							}
 						});
 				}
-				else if(save3 == null) {
+				else if(result.save3 == null) {
 					connection.query('UPDATE user_saves SET ? WHERE ip='+ipAdd, {save3: insert},
 							function(err, result){
 							// Case there is an error during the creation
@@ -161,7 +161,7 @@ app.post('/save', function (req, res, next) {
 							}
 						});
 				}
-				else if(save4 == null) {
+				else if(result.save4 == null) {
 					connection.query('UPDATE user_saves SET ? WHERE ip='+ipAdd, {save4: insert},
 							function(err, result){
 							// Case there is an error during the creation
@@ -172,7 +172,7 @@ app.post('/save', function (req, res, next) {
 							}
 						});
 				}
-				else if(save5 == null) {
+				else if(result.save5 == null) {
 					connection.query('UPDATE user_saves SET ? WHERE ip='+ipAdd, {save5: insert},
 							function(err, result){
 							// Case there is an error during the creation
@@ -183,7 +183,7 @@ app.post('/save', function (req, res, next) {
 							}
 						});
 				}
-				else if(save6 == null) {
+				else if(result.save6 == null) {
 					connection.query('UPDATE user_saves SET ? WHERE ip='+ipAdd, {save6: insert},
 							function(err, result){
 							// Case there is an error during the creation
