@@ -101,9 +101,11 @@ app.post('/save', function (req, res) {
 		if(err) {
 			console.log(err);
 		} else {
+			console.log('insert start');
 			console.log(result);
 			console.log(result.insertId);
 			insert = result.insertId;
+			console.log('insert end');
 		}
 	});
 	connection.query("SELECT * FROM saves",
@@ -112,7 +114,8 @@ app.post('/save', function (req, res) {
 			if(err) {
 				console.log(err);
 			} else {
-				if(result.length == 0) console.log('null');
+				//if(result.length == 0) console.log('null');
+				console.log('select saves start');
 				console.log(result);
 			}
 		});
