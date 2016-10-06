@@ -254,6 +254,84 @@ html(lang='en')
       if(data.indexOf('save6') > -1) $('#save6').show();
       }
       });
+      
+      document.getElementById("save1".onclick = function() {
+      $.ajax({
+      type:'POST',
+      url:'/loadSave',
+      data: {save: 'save1'},                  
+      contentType: false,
+      processData: false,
+      success: function(data) {
+      loadSave(data);
+      }
+      });
+      }
+      
+      document.getElementById("save1".onclick = function() {
+      $.ajax({
+      type:'POST',
+      url:'/loadSave',
+      data: {save: 1},                  
+      contentType: false,
+      processData: false,
+      success: function(data) {
+      loadSave(data);
+      }
+      });
+      }
+      
+      document.getElementById("save1".onclick = function() {
+      $.ajax({
+      type:'POST',
+      url:'/loadSave',
+      data: {save: 2},                  
+      contentType: false,
+      processData: false,
+      success: function(data) {
+      loadSave(data);
+      }
+      });
+      }
+      
+      document.getElementById("save3".onclick = function() {
+      $.ajax({
+      type:'POST',
+      url:'/loadSave',
+      data: {save: 3},                  
+      contentType: false,
+      processData: false,
+      success: function(data) {
+      loadSave(data);
+      }
+      });
+      }
+      
+      document.getElementById("save5".onclick = function() {
+      $.ajax({
+      type:'POST',
+      url:'/loadSave',
+      data: {save: 5},                  
+      contentType: false,
+      processData: false,
+      success: function(data) {
+      loadSave(data);
+      }
+      });
+      }
+      
+      document.getElementById("save6".onclick = function() {
+      $.ajax({
+      type:'POST',
+      url:'/loadSave',
+      data: {save: 6},                  
+      contentType: false,
+      processData: false,
+      success: function(data) {
+      loadSave(data);
+      }
+      });
+      }
       document.getElementById("saveBtn").onclick = function() {
       /*$.ajax({
       type:'POST',

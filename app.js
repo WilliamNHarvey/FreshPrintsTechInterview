@@ -222,7 +222,7 @@ app.post('/loadSave', function (req, res, next) {
 	var ipAdd = req.headers['x-forwarded-for'];
 	console.log(ipAdd);
 	//console.log(req.body);
-	var index = req.body.num;
+	var index = req.body.save;
 	var saveNum;
 	connection.query("SELECT * FROM user_saves WHERE ?", {ip: ipAdd},
 			function(err, result){
