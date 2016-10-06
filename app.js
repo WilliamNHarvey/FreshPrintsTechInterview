@@ -22,7 +22,6 @@ var connection = mysql.createConnection({
 })
 
 connection.connect();
-/*connection.query('DROP TABLE user_saves',
 function(err, result){
 	// Case there is an error during the creation
 	if(err) {
