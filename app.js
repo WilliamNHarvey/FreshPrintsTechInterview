@@ -93,7 +93,7 @@ app.post('/save', function (req, res) {
 	var ip = req.headers['x-forwarded-for'];
 	console.log(ip);
 	console.log(req.body);
-	connection.query('INSERT INTO saves VALUES ('+req.body.objectData+',
+	connection.query('INSERT INTO saves VALUES ('+req.body.objectData+')',
 		function(err, result){
 		// Case there is an error during the creation
 		if(err) {
