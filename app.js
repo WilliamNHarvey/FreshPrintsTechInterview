@@ -111,7 +111,7 @@ app.post('/save', function (req, res) {
 			if(err) {
 				console.log(err);
 			} else {
-				if(result == null) console.log('null');
+				if(result.length == 0) console.log('null');
 				console.log(result);
 			}
 		});
