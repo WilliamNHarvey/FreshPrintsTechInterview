@@ -89,7 +89,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/users', users);
 
-app.post('/save', function (req, res) {
+app.post('/save', function (req, res, next) {
 	var ipAdd = req.headers['x-forwarded-for'];
 	console.log(ipAdd);
 	//console.log(req.body);
@@ -222,6 +222,7 @@ app.post('/save', function (req, res) {
 			console.log("Table user_saves dropped");
 		}
 	});*/
+	next();
 })
 
 function makeid()
