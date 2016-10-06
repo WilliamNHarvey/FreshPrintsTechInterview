@@ -190,7 +190,6 @@ app.post('/save', function (req, res, next) {
 			}
 		});
 	
-	res.status(201).end();
 	if(fail) res.send('Save failed');
 	else res.send('Saved to position '+save);
 })
@@ -253,7 +252,7 @@ app.post('/getSave', function (req, res, next) {
 			console.log("Table user_saves dropped");
 		}
 	});*/
-	res.status(201).end();
+	//res.status(201).end();
 	
 })
 
