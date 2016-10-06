@@ -94,7 +94,9 @@ app.post('/save', function (req, res, next) {
 	console.log(ipAdd);
 	//console.log(req.body);
 	var post = {save: req.body.objectData};
+	var firstPost = {ip: ipAdd, save1: insert, save2: empty, save3: empty, save4: empty, save5: empty, save6: empty};
 	var insert;
+	var empty = '{"objects":[],"background":"rgba(0, 0, 0, 0)"}';
 	connection.query('INSERT INTO saves SET ?', post,
 		function(err, result){
 		// Case there is an error during the creation
@@ -127,7 +129,7 @@ app.post('/save', function (req, res, next) {
 			} else {
 				console.log(result);
 				if(result.length == 0) {
-					connection.query('INSERT INTO user_saves SET ?', {ip: ipAdd, save1: insert, save2: null, save3: null, save4: null, save5: null, save6: null},
+					connection.query('INSERT INTO user_saves SET ?', firstPost,
 							function(err, result){
 							// Case there is an error during the creation
 							if(err) {
