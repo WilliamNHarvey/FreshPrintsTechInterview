@@ -138,7 +138,7 @@ app.post('/save', function (req, res, next) {
 						});
 				}
 				else if(save2 == null) {
-					connection.query('UPDATE user_saves SET ? WHERE ip='+ipAdd, {save2: insert},
+					connection.query('UPDATE user_saves SET save2='+insert+' WHERE ip='+ipAdd,
 							function(err, result){
 							// Case there is an error during the creation
 							if(err) {
