@@ -125,6 +125,7 @@ app.post('/save', function (req, res) {
 			if(err) {
 				console.log(err);
 			} else {
+				console.log(result);
 				if(result.length == 0) {
 					connection.query('INSERT INTO user_saves SET ?', {ip: ipAdd, save1: insert, save2: null, save3: null, save4: null, save5: null, save6: null},
 							function(err, result){
