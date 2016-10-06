@@ -1,3 +1,3 @@
 web: node ./bin/www
-heroku restart
+web: heroku restart
 web: npm start
