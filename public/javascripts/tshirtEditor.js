@@ -13,7 +13,8 @@ var mods = 0;
 function updateModifications(e) {
         string = JSON.stringify(canvas);
         state.push(string);
-        console.log(state.length);
+        console.log(state);
+        
 }
 
 function saveCanvas() {
@@ -88,15 +89,12 @@ function addUploadedImg(src) {
 			  },
 			  'object:modified': function(e) {		  	
 			    e.target.opacity = 1;
-			    console.log('mod');
 			    updateModifications();
 			  },
 			  'object:added': function (e) {
-				  console.log(e);
 			    updateModifications();
  			  },
  			  'object:removed': function () {
- 				 console.log('rem');
 			    updateModifications();
  			  },
 			 'object:selected':onObjectSelected,
