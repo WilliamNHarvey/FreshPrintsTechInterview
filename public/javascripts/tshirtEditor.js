@@ -8,7 +8,9 @@ var line3;
 var line4;
 var state = [];
 var mods = 0;
-
+var undo = [];
+var redo = [];
+var changeBool = false;
 
 function updateModifications(e) {
         string = JSON.stringify(canvas);
@@ -16,7 +18,11 @@ function updateModifications(e) {
         console.log(state);
         
 }
-
+function addUndo() {
+	string = JSON.stringify(canvas);
+	if(changeBool) changeBool = false;
+	else undo.push(string);
+}
 function saveCanvas() {
 	var json = JSON.stringify(canvas);
 	$.ajax({
@@ -75,6 +81,7 @@ function addUploadedImg(src) {
 		  selectionBorderColor:'blue'
 		});
  		state.push(JSON.stringify(canvas));
+ 		undo.push(JSON.stringify(canvas));
  		//blue borders
  		canvas.on('object:selected', function(o){
  			var activeObj = o.target;
@@ -90,12 +97,15 @@ function addUploadedImg(src) {
 			  'object:modified': function(e) {		  	
 			    e.target.opacity = 1;
 			    updateModifications();
+			    addUndo();
 			  },
 			  'object:added': function (e) {
 			    updateModifications();
+			    addUndo();
  			  },
  			  'object:removed': function () {
 			    updateModifications();
+			    addUndo();
  			  },
 			 'object:selected':onObjectSelected,
 			 'selection:cleared':onSelectedCleared
@@ -195,31 +205,46 @@ function addUploadedImg(src) {
 		    }
 	  };
 	  document.getElementById('undo').onclick = function() {
-		  if (mods < state.length) {
-		        //canvas.clear().renderAll();
+		  if(undo.length > 1) {
+			  canvas.loadFromJSON(undo[length - 2]);
+			  redo.push(undo[undo.length - 1]);
+			  undo.pop();
+			  changeBool = true;
+			  canvas.renderAll();
+		  }
+		  /*if (mods < state.length) {
+		        canvas.clear().renderAll();
 		        canvas.loadFromJSON(state[(state.length - 1) - mods - 1]);
-		        var statePre = state.length;
 		        canvas.renderAll();
-		        if (state.length == statePre + 1) state.pop();
 		        //console.log("geladen " + (state.length-1-mods-1));
 		        //console.log("state " + state.length);
+		        console.log(canvas.objects);
+		        if(canvas.objects != null) state.pop();
 		        console.log(state);
 		        mods += 1;
 		        console.log("mods " + mods);
-		  }
+		  }*/
 	  }
 	  document.getElementById('redo').onclick = function() {
-		  if (mods > 0) {
-		        //canvas.clear().renderAll();
-		        
+		  if(redo.length > 0) {
+			  canvas.loadFromJSON(redo[0]);
+			  for(i = 0; i < redo.length - 1; i++){ 
+				  redo[i] = redo[i+1];
+			  }
+			  changeBool = true;
+			  canvas.renderAll();
+		  }
+		  /*if (mods > 0) {
+			  	if(canvas.objects == null) mods++;
+		        canvas.clear().renderAll();
 		        canvas.loadFromJSON(state[(state.length - 1) - mods]);
-		        console.log(state[(state.length - 1) - mods]);
+		        console.log(state);
 		        canvas.renderAll();
 		        //console.log("geladen " + (state.length-1-mods+1));
 		        mods -= 1;
 		        //console.log("state " + state.length);
 		        console.log("mods redo " + mods);
-		  }
+		  }*/
 	  }
 	  document.getElementById('bring-to-front').onclick = function() {		  
 		    var activeObject = canvas.getActiveObject(),
