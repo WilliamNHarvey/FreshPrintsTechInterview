@@ -23,7 +23,10 @@ function addUndo() {
 	if(changeBool) changeBool = false;
 	else {
 		undo.push(string);
-		if(!redoPress) redo = [];
+		if(!redoPress){
+			redo = [];
+			console.log('redo set');
+		}
 	}
 }
 function saveCanvas() {
@@ -230,6 +233,7 @@ function addUploadedImg(src) {
 		  }*/
 	  }
 	  document.getElementById('redo').onclick = function() {
+		  console.log(redo);
 		  if(redo.length > 0) {
 			  redoPress = true;
 			  console.log(redo);
