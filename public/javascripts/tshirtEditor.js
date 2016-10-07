@@ -230,7 +230,7 @@ function addUploadedImg(src) {
 	  }
 	  document.getElementById('redo').onclick = function() {
 		  if(redo.length > 0) {
-			  changeBool = true;
+			  //changeBool = true;
 			  canvas.loadFromJSON(redo[0]);
 			  for(i = 0; i < redo.length - 1; i++){ 
 				  redo[i] = redo[i+1];
