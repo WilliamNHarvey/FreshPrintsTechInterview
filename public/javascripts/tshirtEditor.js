@@ -200,7 +200,7 @@ function addUploadedImg(src) {
 		        //console.log("geladen " + (state.length-1-mods-1));
 		        //console.log("state " + state.length);
 		        mods += 1;
-		        //console.log("mods " + mods);
+		        console.log("mods " + mods);
 		  }
 	  }
 	  document.getElementById('redo').onclick = function() {
@@ -211,7 +211,7 @@ function addUploadedImg(src) {
 		        //console.log("geladen " + (state.length-1-mods+1));
 		        mods -= 1;
 		        //console.log("state " + state.length);
-		        //console.log("mods " + mods);
+		        console.log("mods redo " + mods);
 		  }
 	  }
 	  document.getElementById('bring-to-front').onclick = function() {		  
