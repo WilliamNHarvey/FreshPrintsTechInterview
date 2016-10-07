@@ -8,13 +8,7 @@ var line3;
 var line4;
 var state = [];
 var mods = 0;
-canvas.on(
-    'object:modified', function () {
-    updateModifications(true);
-},
-    'object:added', function () {
-    updateModifications(true);
-});
+
 
 function updateModifications(savehistory) {
     if (savehistory === true) {
@@ -79,6 +73,7 @@ function addUploadedImg(src) {
 		  selection: true,
 		  selectionBorderColor:'blue'
 		});
+ 		//blue borders
  		canvas.on('object:selected', function(o){
  			var activeObj = o.target;
  			if(activeObj.get('type') == 'group') {
@@ -92,7 +87,14 @@ function addUploadedImg(src) {
 			  },
 			  'object:modified': function(e) {		  	
 			    e.target.opacity = 1;
+			    updateModifications(true);
 			  },
+			  'object:added', function () {
+			    updateModifications(true);
+ 			  },
+ 			  'object:removed', function () {
+			    updateModifications(true);
+ 			  },
 			 'object:selected':onObjectSelected,
 			 'selection:cleared':onSelectedCleared
 		 });
