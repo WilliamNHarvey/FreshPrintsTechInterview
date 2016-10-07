@@ -94,12 +94,15 @@ function addUploadedImg(src) {
 			  },
 			  'object:modified': function(e) {		  	
 			    e.target.opacity = 1;
+			    console.log('mod');
 			    updateModifications();
 			  },
 			  'object:added': function () {
+				  console.log('add');
 			    updateModifications();
  			  },
  			  'object:removed': function () {
+ 				 console.log('rem');
 			    updateModifications();
  			  },
 			 'object:selected':onObjectSelected,
