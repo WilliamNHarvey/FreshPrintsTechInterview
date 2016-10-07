@@ -21,7 +21,10 @@ function addUndo() {
 	string = JSON.stringify(canvas);
 	console.log(changeBool);
 	if(changeBool) changeBool = false;
-	else undo.push(string);
+	else {
+		undo.push(string);
+		redo = [];
+	}
 }
 function saveCanvas() {
 	var json = JSON.stringify(canvas);
