@@ -12,7 +12,7 @@ var mods = 0;
 
 function updateModifications() {
         string = JSON.stringify(canvas);
-        if(string != state[state.length - 1]) {
+        if(string != line1 && string != line2 && string != line3 && string != line4) {
         	state.push(string);
         	console.log(state.length);
         } 
