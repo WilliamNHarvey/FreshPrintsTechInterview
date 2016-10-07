@@ -13,6 +13,8 @@ var mods = 0;
 function updateModifications() {
         string = JSON.stringify(canvas);
         state.push(string);
+        console.log(state.length);
+        console.log(state);
 }
 
 function saveCanvas() {
@@ -73,6 +75,7 @@ function addUploadedImg(src) {
 		  selectionBorderColor:'blue'
 		});
  		state.push(JSON.stringify(canvas));
+ 		console.log(state);
  		//blue borders
  		canvas.on('object:selected', function(o){
  			var activeObj = o.target;
