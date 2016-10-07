@@ -20,10 +20,10 @@ function updateModifications(e) {
 }
 function addUndo() {
 	string = JSON.stringify(canvas);
-	console.log(changeBool);
 	if(changeBool) changeBool = false;
 	else {
 		undo.push(string);
+		console.log(undoPress);
 		if(!undoPress) redo = [];
 	}
 }
