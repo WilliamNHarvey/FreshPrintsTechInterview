@@ -207,9 +207,10 @@ function addUploadedImg(src) {
 	  document.getElementById('undo').onclick = function() {
 		  console.log(undo);
 		  if(undo.length > 1) {
-			  canvas.loadFromJSON(undo[undo.length - 2]);
 			  redo.push(undo[undo.length - 1]);
 			  undo.pop();
+			  canvas.loadFromJSON(undo[undo.length - 1]);
+			  
 			  //changeBool = true;
 			  canvas.renderAll();
 		  }
