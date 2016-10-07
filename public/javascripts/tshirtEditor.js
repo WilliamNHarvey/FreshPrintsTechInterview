@@ -232,11 +232,13 @@ function addUploadedImg(src) {
 	  document.getElementById('redo').onclick = function() {
 		  if(redo.length > 0) {
 			  redoPress = true;
+			  console.log(redo);
 			  //changeBool = true;
 			  canvas.loadFromJSON(redo[redo.length - 1]);
 			  redo.pop();
 			  canvas.renderAll();
 			  redoPress = false;
+			  console.log(redo);
 		  }
 		  /*if (mods > 0) {
 			  	if(canvas.objects == null) mods++;
