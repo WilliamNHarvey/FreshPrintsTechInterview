@@ -15,7 +15,7 @@ function updateModifications(e) {
         console.log(e);
         console.log(string);
         console.log(JSON.stringify(line1) + JSON.stringify(line2) + JSON.stringify(line3) + JSON.stringify(line4));
-        console.log(string != JSON.stringify(line1) + JSON.stringify(line2) + JSON.stringify(line3) + JSON.stringify(line4))
+        console.log(string != JSON.stringify(line1) + ',' + JSON.stringify(line2) + ',' + JSON.stringify(line3) + ',' + JSON.stringify(line4))
         if(e != line1 && e != line2 && e != line3 && e != line4) {
         	state.push(string);
         	console.log(state.length);
