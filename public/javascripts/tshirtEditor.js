@@ -28,6 +28,7 @@ function addUndo() {
 			console.log('redo set');
 		}
 	}
+	redoPress = false;
 }
 function saveCanvas() {
 	var json = JSON.stringify(canvas);
@@ -241,7 +242,7 @@ function addUploadedImg(src) {
 			  canvas.loadFromJSON(redo[redo.length - 1]);
 			  redo.pop();
 			  canvas.renderAll();
-			  redoPress = false;
+			  //redoPress = false;
 			  console.log(redo);
 		  }
 		  /*if (mods > 0) {
