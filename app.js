@@ -239,18 +239,18 @@ app.post('/loadSave', function (req, res, next) {
 				else if(index == '6') saveNum = result[0].save6;
 				else saveNum = null;
 				console.log('Save num ' + saveNum);
+				connection.query("SELECT * FROM saves WHERE ?", {save_id: saveNum},
+					function(err, result){
+					// Case there is an error during the creation
+					if(err) {
+						console.log(err);
+					} else {
+						res.send(result[0].save);
+					}
+				});
 			}
 		});
-	connection.query("SELECT * FROM saves"/* WHERE ?", {save_id: saveNum}*/,
-			function(err, result){
-			// Case there is an error during the creation
-			if(err) {
-				console.log(err);
-			} else {
-				console.log(result);
-				res.send(result[0].save);
-			}
-		});
+	
 	/*connection.query('INSERT INTO user_saves VALUES ('+ip+', ',
 		function(err, result){
 		// Case there is an error during the creation
