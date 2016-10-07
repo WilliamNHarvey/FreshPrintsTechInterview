@@ -10,11 +10,9 @@ var state = [];
 var mods = 0;
 
 
-function updateModifications(savehistory) {
-    if (savehistory === true) {
-        myjson = JSON.stringify(canvas);
-        state.push(myjson);
-    }
+function updateModifications() {
+        string = JSON.stringify(canvas);
+        state.push(string);
 }
 
 function saveCanvas() {
@@ -36,7 +34,8 @@ function loadCanvas(json) {
 
 		  // making sure to render canvas at the end
 		  canvas.renderAll();
-
+		  state = [];
+		  state.push(string);
 		  // and checking if object's "name" is preserved
 		});
 }
@@ -73,6 +72,7 @@ function addUploadedImg(src) {
 		  selection: true,
 		  selectionBorderColor:'blue'
 		});
+ 		state.push(JSON.stringify(canvas));
  		//blue borders
  		canvas.on('object:selected', function(o){
  			var activeObj = o.target;
@@ -87,13 +87,13 @@ function addUploadedImg(src) {
 			  },
 			  'object:modified': function(e) {		  	
 			    e.target.opacity = 1;
-			    updateModifications(true);
+			    updateModifications();
 			  },
 			  'object:added': function () {
-			    updateModifications(true);
+			    updateModifications();
  			  },
  			  'object:removed': function () {
-			    updateModifications(true);
+			    updateModifications();
  			  },
 			 'object:selected':onObjectSelected,
 			 'selection:cleared':onSelectedCleared
