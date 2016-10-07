@@ -11,7 +11,7 @@ var mods = 0;
 var undo = [];
 var redo = [];
 var changeBool = false;
-var undoPress = false;
+var redoPress = false;
 
 function updateModifications(e) {
         string = JSON.stringify(canvas);
@@ -23,8 +23,7 @@ function addUndo() {
 	if(changeBool) changeBool = false;
 	else {
 		undo.push(string);
-		console.log(undoPress);
-		if(!undoPress) redo = [];
+		if(!redoPress) redo = [];
 	}
 }
 function saveCanvas() {
@@ -211,13 +210,11 @@ function addUploadedImg(src) {
 	  document.getElementById('undo').onclick = function() {
 		  console.log(undo);
 		  if(undo.length > 1) {
-			  undoPress = true;
 			  redo.push(undo[undo.length - 1]);
 			  undo.pop();
 			  if(undo.length > 1) changeBool = true;
 			  canvas.loadFromJSON(undo[undo.length - 1]);
 			  canvas.renderAll();
-			  undoPress = false;
 		  }
 		  /*if (mods < state.length) {
 		        canvas.clear().renderAll();
@@ -234,10 +231,12 @@ function addUploadedImg(src) {
 	  }
 	  document.getElementById('redo').onclick = function() {
 		  if(redo.length > 0) {
+			  redoPress = true;
 			  //changeBool = true;
 			  canvas.loadFromJSON(redo[redo.length - 1]);
 			  redo.pop();
 			  canvas.renderAll();
+			  redoPress = false;
 		  }
 		  /*if (mods > 0) {
 			  	if(canvas.objects == null) mods++;
