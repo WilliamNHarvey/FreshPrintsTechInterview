@@ -196,11 +196,11 @@ function addUploadedImg(src) {
 	  };
 	  document.getElementById('undo').onclick = function() {
 		  if (mods < state.length) {
-		        canvas.clear().renderAll();
+		        //canvas.clear().renderAll();
 		        canvas.loadFromJSON(state[(state.length - 1) - mods - 1]);
 		        var statePre = state.length;
 		        canvas.renderAll();
-		        if (state.length == statePre + 1) state.pop();
+		        //if (state.length == statePre + 1) state.pop();
 		        //console.log("geladen " + (state.length-1-mods-1));
 		        //console.log("state " + state.length);
 		        console.log(state);
@@ -210,9 +210,10 @@ function addUploadedImg(src) {
 	  }
 	  document.getElementById('redo').onclick = function() {
 		  if (mods > 0) {
-		        canvas.clear().renderAll();
+		        //canvas.clear().renderAll();
+		        
 		        canvas.loadFromJSON(state[(state.length - 1) - mods]);
-		        console.log(state);
+		        console.log(state[(state.length - 1) - mods]);
 		        canvas.renderAll();
 		        //console.log("geladen " + (state.length-1-mods+1));
 		        mods -= 1;
