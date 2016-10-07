@@ -6,6 +6,23 @@ var line1;
 var line2;
 var line3;
 var line4;
+var state = [];
+var mods = 0;
+canvas.on(
+    'object:modified', function () {
+    updateModifications(true);
+},
+    'object:added', function () {
+    updateModifications(true);
+});
+
+function updateModifications(savehistory) {
+    if (savehistory === true) {
+        myjson = JSON.stringify(canvas);
+        state.push(myjson);
+    }
+}
+
 function saveCanvas() {
 	var json = JSON.stringify(canvas);
 	$.ajax({
@@ -174,10 +191,26 @@ function addUploadedImg(src) {
 		    }
 	  };
 	  document.getElementById('undo').onclick = function() {
-		  
+		  if (mods < state.length) {
+		        canvas.clear().renderAll();
+		        canvas.loadFromJSON(state[state.length - 1 - mods - 1]);
+		        canvas.renderAll();
+		        //console.log("geladen " + (state.length-1-mods-1));
+		        //console.log("state " + state.length);
+		        mods += 1;
+		        //console.log("mods " + mods);
+		  }
 	  }
 	  document.getElementById('redo').onclick = function() {
-		  
+		  if (mods > 0) {
+		        canvas.clear().renderAll();
+		        canvas.loadFromJSON(state[state.length - 1 - mods + 1]);
+		        canvas.renderAll();
+		        //console.log("geladen " + (state.length-1-mods+1));
+		        mods -= 1;
+		        //console.log("state " + state.length);
+		        //console.log("mods " + mods);
+		  }
 	  }
 	  document.getElementById('bring-to-front').onclick = function() {		  
 		    var activeObject = canvas.getActiveObject(),
