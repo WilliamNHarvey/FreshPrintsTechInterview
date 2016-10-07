@@ -20,7 +20,6 @@ function saveCanvas() {
 	});
 }
 function loadCanvas(json) {
-	console.log(json);
 	var string = JSON.stringify(json);
 	canvas.loadFromJSON(string, function() {
 
