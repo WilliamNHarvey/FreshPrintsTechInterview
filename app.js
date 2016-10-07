@@ -22,7 +22,7 @@ var db_config = {
 		database : 'heroku_59d4cdfdabbc8e9'
 };
 
-connection.connect();
+
 
 function handleDisconnect() {
 	  connection = mysql.createConnection(db_config); // Recreate the connection, since
