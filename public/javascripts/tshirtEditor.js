@@ -12,7 +12,7 @@ var mods = 0;
 
 function updateModifications(e) {
         string = JSON.stringify(canvas);
-        console.log(string != line1 && string != line2 && string != line3 && string != line4);
+        console.log(e);
         console.log(string);
         console.log(JSON.stringify(line1) + JSON.stringify(line2) + JSON.stringify(line3) + JSON.stringify(line4));
         console.log(string != JSON.stringify(line1) + JSON.stringify(line2) + JSON.stringify(line3) + JSON.stringify(line4))
