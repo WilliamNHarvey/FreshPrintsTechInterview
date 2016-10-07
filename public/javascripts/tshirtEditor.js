@@ -201,6 +201,8 @@ function addUploadedImg(src) {
 		        canvas.renderAll();
 		        //console.log("geladen " + (state.length-1-mods-1));
 		        //console.log("state " + state.length);
+		        state.pop();
+		        console.log(state);
 		        mods += 1;
 		        console.log("mods " + mods);
 		  }
