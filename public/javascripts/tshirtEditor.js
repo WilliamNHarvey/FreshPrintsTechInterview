@@ -12,12 +12,9 @@ var mods = 0;
 
 function updateModifications() {
         string = JSON.stringify(canvas);
-        console.log(string == state[state.length - 1]);
-        console.log();
         if(string != state[state.length - 1]) {
         	state.push(string);
         	console.log(state.length);
-        	console.log(state);
         } 
 }
 
@@ -97,8 +94,8 @@ function addUploadedImg(src) {
 			    console.log('mod');
 			    updateModifications();
 			  },
-			  'object:added': function () {
-				  console.log('add');
+			  'object:added': function (e) {
+				  console.log(e);
 			    updateModifications();
  			  },
  			  'object:removed': function () {
