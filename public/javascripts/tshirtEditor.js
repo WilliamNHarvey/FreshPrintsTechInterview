@@ -11,6 +11,7 @@ var mods = 0;
 var undo = [];
 var redo = [];
 var changeBool = false;
+var undoPress = false;
 
 function updateModifications(e) {
         string = JSON.stringify(canvas);
@@ -23,7 +24,7 @@ function addUndo() {
 	if(changeBool) changeBool = false;
 	else {
 		undo.push(string);
-		redo = [];
+		if(!undoPress) redo = [];
 	}
 }
 function saveCanvas() {
@@ -210,13 +211,13 @@ function addUploadedImg(src) {
 	  document.getElementById('undo').onclick = function() {
 		  console.log(undo);
 		  if(undo.length > 1) {
+			  undoPress = true;
 			  redo.push(undo[undo.length - 1]);
 			  undo.pop();
 			  if(undo.length > 1) changeBool = true;
 			  canvas.loadFromJSON(undo[undo.length - 1]);
-			  
-			  
 			  canvas.renderAll();
+			  undoPress = false;
 		  }
 		  /*if (mods < state.length) {
 		        canvas.clear().renderAll();
