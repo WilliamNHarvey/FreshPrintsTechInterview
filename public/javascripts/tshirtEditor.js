@@ -19,7 +19,8 @@ function saveCanvas() {
 	      }
 	});
 }
-function loadCanvas(string) {
+function loadCanvas(json) {
+	var string = JSON.parse(json);
 	canvas.loadFromJSON(string, function() {
 
 		  // making sure to render canvas at the end
