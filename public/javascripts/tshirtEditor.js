@@ -195,7 +195,7 @@ function addUploadedImg(src) {
 	  document.getElementById('undo').onclick = function() {
 		  if (mods < state.length) {
 		        canvas.clear().renderAll();
-		        canvas.loadFromJSON(state[state.length - 1 - mods - 1]);
+		        canvas.loadFromJSON(state[state.length - mods - 1]);
 		        canvas.renderAll();
 		        //console.log("geladen " + (state.length-1-mods-1));
 		        //console.log("state " + state.length);
@@ -206,7 +206,7 @@ function addUploadedImg(src) {
 	  document.getElementById('redo').onclick = function() {
 		  if (mods > 0) {
 		        canvas.clear().renderAll();
-		        canvas.loadFromJSON(state[state.length - 1 - mods + 1]);
+		        canvas.loadFromJSON(state[state.length - mods + 1]);
 		        canvas.renderAll();
 		        //console.log("geladen " + (state.length-1-mods+1));
 		        mods -= 1;
