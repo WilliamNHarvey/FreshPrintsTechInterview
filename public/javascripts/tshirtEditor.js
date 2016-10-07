@@ -15,11 +15,11 @@ var changeBool = false;
 function updateModifications(e) {
         string = JSON.stringify(canvas);
         state.push(string);
-        console.log(state);
         
 }
 function addUndo() {
 	string = JSON.stringify(canvas);
+	console.log(changeBool);
 	if(changeBool) changeBool = false;
 	else undo.push(string);
 }
@@ -205,6 +205,7 @@ function addUploadedImg(src) {
 		    }
 	  };
 	  document.getElementById('undo').onclick = function() {
+		  console.log(undo);
 		  if(undo.length > 1) {
 			  canvas.loadFromJSON(undo[undo.length - 2]);
 			  redo.push(undo[undo.length - 1]);
