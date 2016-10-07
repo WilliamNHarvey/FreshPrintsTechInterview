@@ -12,9 +12,11 @@ var mods = 0;
 
 function updateModifications() {
         string = JSON.stringify(canvas);
-        state.push(string);
-        console.log(state.length);
-        console.log(state);
+        if(string != state[state.length - 1]) {
+        	state.push(string);
+        	console.log(state.length);
+        	console.log(state);
+        } 
 }
 
 function saveCanvas() {
