@@ -200,7 +200,7 @@ function addUploadedImg(src) {
 		        canvas.loadFromJSON(state[(state.length - 1) - mods - 1]);
 		        var statePre = state.length;
 		        canvas.renderAll();
-		        //if (state.length == statePre + 1) state.pop();
+		        if (state.length == statePre + 1) state.pop();
 		        //console.log("geladen " + (state.length-1-mods-1));
 		        //console.log("state " + state.length);
 		        console.log(state);
