@@ -241,7 +241,7 @@ app.post('/loadSave', function (req, res, next) {
 				console.log('Save num ' + saveNum);
 			}
 		});
-	connection.query("SELECT * FROM saves WHERE ?", {save_id: saveNum},
+	connection.query("SELECT * FROM saves"/* WHERE ?", {save_id: saveNum}*/,
 			function(err, result){
 			// Case there is an error during the creation
 			if(err) {
