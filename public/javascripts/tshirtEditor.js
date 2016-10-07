@@ -210,7 +210,6 @@ function addUploadedImg(src) {
 	  }
 	  document.getElementById('redo').onclick = function() {
 		  if (mods > 0) {
-			  	if(canvas.objects == null) mods++;
 		        canvas.clear().renderAll();
 		        canvas.loadFromJSON(state[(state.length - 1) - mods]);
 		        console.log(state);
