@@ -235,7 +235,7 @@ function addUploadedImg(src) {
 			  for(i = 0; i < redo.length - 1; i++){ 
 				  redo[i] = redo[i+1];
 			  }
-			  
+			  redo.pop();
 			  canvas.renderAll();
 		  }
 		  /*if (mods > 0) {
