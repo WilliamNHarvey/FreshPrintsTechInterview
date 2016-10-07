@@ -209,7 +209,7 @@ function addUploadedImg(src) {
 		  if(undo.length > 1) {
 			  redo.push(undo[undo.length - 1]);
 			  undo.pop();
-			  //changeBool = true;
+			  changeBool = true;
 			  canvas.loadFromJSON(undo[undo.length - 1]);
 			  
 			  
