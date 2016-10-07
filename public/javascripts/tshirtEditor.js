@@ -10,9 +10,12 @@ var state = [];
 var mods = 0;
 
 
-function updateModifications() {
+function updateModifications(e) {
         string = JSON.stringify(canvas);
-        if(string != line1 && string != line2 && string != line3 && string != line4) {
+        console.log(string != line1 && string != line2 && string != line3 && string != line4);
+        console.log(string);
+        console.log(line1);
+        if(e != line1 && e != line2 && e != line3 && e != line4) {
         	state.push(string);
         	console.log(state.length);
         } 
@@ -76,7 +79,6 @@ function addUploadedImg(src) {
 		  selectionBorderColor:'blue'
 		});
  		state.push(JSON.stringify(canvas));
- 		console.log(state);
  		//blue borders
  		canvas.on('object:selected', function(o){
  			var activeObj = o.target;
