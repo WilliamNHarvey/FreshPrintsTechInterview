@@ -89,10 +89,10 @@ function addUploadedImg(src) {
 			    e.target.opacity = 1;
 			    updateModifications(true);
 			  },
-			  'object:added', function () {
+			  'object:added': function () {
 			    updateModifications(true);
  			  },
- 			  'object:removed', function () {
+ 			  'object:removed': function () {
 			    updateModifications(true);
  			  },
 			 'object:selected':onObjectSelected,
