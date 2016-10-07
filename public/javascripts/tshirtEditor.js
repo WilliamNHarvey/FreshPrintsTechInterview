@@ -12,14 +12,8 @@ var mods = 0;
 
 function updateModifications(e) {
         string = JSON.stringify(canvas);
-        console.log(string);
-        console.log('{"objects":[' + JSON.stringify(line1) + ',' + JSON.stringify(line2) + ',' + JSON.stringify(line3) + ',' + JSON.stringify(line4));
-        console.log(JSON.stringify([line1, line2, line3, line4]));
-        console.log(string != '{"objects":[' + JSON.stringify(line1) + ',' + JSON.stringify(line2) + ',' + JSON.stringify(line3) + ',' + JSON.stringify(line4))
-        if(e != line1 && e != line2 && e != line3 && e != line4) {
-        	state.push(string);
-        	console.log(state.length);
-        } 
+        state.push(string);
+        console.log(state.length);
 }
 
 function saveCanvas() {
@@ -357,7 +351,7 @@ function addUploadedImg(src) {
 		});
 	
 		//canvas.add(new fabric.fabric.Object({hasBorders:true,hasControls:false,hasRotatingPoint:false,selectable:false,type:'rect'}));
-	   $("#drawingArea").hover(
+	   /*$("#drawingArea").hover(
 	        function() { 	        	
 	        	 canvas.add(line1);
 		         canvas.add(line2);
@@ -372,7 +366,7 @@ function addUploadedImg(src) {
 		         canvas.remove(line4);
 		         canvas.renderAll();
 	        }
-	    );
+	    );*/
 	   
 	   $('.color-preview').click(function(){
 		   var color = $(this).css("background-color");
