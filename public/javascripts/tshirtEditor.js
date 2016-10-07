@@ -14,7 +14,7 @@ function updateModifications(e) {
         string = JSON.stringify(canvas);
         console.log(string != line1 && string != line2 && string != line3 && string != line4);
         console.log(string);
-        console.log(line1);
+        console.log(JSON.stringify(line1));
         if(e != line1 && e != line2 && e != line3 && e != line4) {
         	state.push(string);
         	console.log(state.length);
