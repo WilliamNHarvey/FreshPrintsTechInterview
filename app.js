@@ -229,7 +229,7 @@ app.post('/getSaves', function (req, res, next) {
 			// Case there is an error during the creation
 			if(err) {
 				console.log(err);
-			} else {
+			} else if (typeof(result !== 'undefined') && result.length > 0){
 				if(result[0].save1 != null) saves[saves.length] = 'save1';
 				if(result[0].save2 != null) saves[saves.length] = 'save2';
 				if(result[0].save3 != null) saves[saves.length] = 'save3';
